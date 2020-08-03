@@ -1,0 +1,210 @@
+
+<!DOCTYPE html>
+
+<html lang="pt_BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module Environment &#8212; documentação lobocug-at-nacad 0.0.1</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/translations.js"></script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Buscar" href="../search.html" />
+    <link rel="prev" title="Introdução" href="introduction.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-environment">
+<h1>Module Environment<a class="headerlink" href="#module-environment" title="Link permanente para este título">¶</a></h1>
+<p>Introdução:
+O module é usado para facilitar o chaveamento de ambientes de programação. Esta ferramenta permite que o usuário escolha qual(is) ferramenta(s) deseja usar, como por exemplo, versão do compilador, biblioteca matemática, MPI, etc.</p>
+<p><strong>Utilização do Module</strong></p>
+<p>Comandos basicos do module.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 49%" />
+<col style="width: 51%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Comando</p></th>
+<th class="head"><p>Descrição</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>module list</p></td>
+<td><p>lista os módulos carregados</p></td>
+</tr>
+<tr class="row-odd"><td><p>module avail</p></td>
+<td><p>lista os módulos disponiveis</p></td>
+</tr>
+<tr class="row-even"><td><p>module help [modulefile]</p></td>
+<td><p>mostra a sintaxe do comando module</p></td>
+</tr>
+<tr class="row-odd"><td><p>module load modulefile [modulefile …]</p></td>
+<td><p>carrega o(s) módulo(s) correspondente(s)</p></td>
+</tr>
+<tr class="row-even"><td><p>module unload modulefile [modulefile …]</p></td>
+<td><p>descarrega o(s) módulo(s) correspondente(s)</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Exemplos de Uso do Module</strong></p>
+<p>Segue abaixo alguns exemplos de como utilizar o comando module.
+Nenhum módulo é carregado por padrão.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>user@service1:~&gt; module list
+No Modulefiles Currently Loaded.
+</pre></div>
+</div>
+<p>O comando abaixo lista os módulos disponiveis. É importante observar que os módulos são separados por grupos. Deve-se ter o cuidado de utiliza-lo de forma correta. Por exemplo, os modulos abaixo do /sw/apps/pgi16/modulefiles devem ser utilizado junto com o compilador PGI. Outro exemplo, uma das implementações do padrão MPI é feita através do mvapich e este por sua vez tem 3 versões diferentes, uma para cada compilador (PGI, Intel e GNU).</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>user@service1:~&gt; module avail
+
+--------------------------------------- /usr/share/modules/modulefiles   ---------------------------------------
+mpt/2.13    perfboost   perfcatcher
+
+----------------------------------------- /sw/apps/pgi16/modulefiles -----------------------------------------
+hdf5/1.8.10p1/2016                pgi/16.7<span class="o">(</span>default<span class="o">)</span>                 pnetcdf/1.6.1/mpich-3.2/2016
+mvapich/2.1/2016                  pgi/2016                          pnetcdf/1.6.1/mvapich2-2.1/2016
+netcdf/4.3.3.1/2016               pgi64/16.5                        pnetcdf/1.6.1/openmpi-1.10.2/2016
+openmpi/1.10.2/2016               pgi64/16.7<span class="o">(</span>default<span class="o">)</span>               PrgEnv-pgi/16.5
+pgi/16.5                          pgi64/2016                        PrgEnv-pgi/16.7<span class="o">(</span>default<span class="o">)</span>
+
+----------------------------------------- /sw/apps/suse/modulefiles - -----------------------------------------
+mvapich-gnu/2.2                 openblas/multi-threaded/0.2.18  openblas/single-threaded/0.2.18 singularity
+mvapich-intel/2.2               openblas/multi-threaded/0.2.19  openblas/single-threaded/0.2.19
+
+---------------------------------------------- /sw/modulefiles -----------------------------------------------
+intel/2016.3.210          intel/2016.4.072<span class="o">(</span>default<span class="o">)</span> java/jdk/1.8.0_102        java/jre/1.8.0_102
+</pre></div>
+</div>
+<p>Obtendo informações sobre os módulos.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>user@service1:~&gt; module <span class="nb">help</span> intel
+
+----------- Module Specific Help <span class="k">for</span> <span class="s1">&#39;intel/2016.4.072&#39;</span> -----------
+
+The Intel module enables the Intel family of compilers <span class="o">(</span>C/C++,
+Fortran and MPI<span class="o">)</span> and updates the <span class="nv">$PATH</span>, <span class="nv">$LD_LIBRARY_PATH</span>,
+<span class="nv">$INCLUDE</span>, and <span class="nv">$MANPATH</span> environment variables to access the
+compiler binaries, libraries, include files, and available man
+pages, respectively.
+
+See the man pages <span class="k">for</span> icc, icpc, and ifort <span class="k">for</span> detailed information
+on available compiler options and command-line syntax.
+
+See the man pages <span class="k">for</span> idb or idbc <span class="k">for</span> more information on using the
+Intel debugger.
+
+Version <span class="m">2016</span> SP4
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>user@service1:~&gt; module whatis intel
+intel                : Name: Intel Compiler
+intel                : Version: <span class="m">2016</span> SP4
+intel                : Category: compiler, runtime support
+intel                : Description: Intel Compiler Family <span class="o">(</span>C/C++/Fortran <span class="k">for</span> x86_64<span class="o">)</span>
+intel                : URL: http://software.intel.com/en-us/articles/intel-compilers/
+</pre></div>
+</div>
+<p>Carregando, listando e descarregando um módulo.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>user@service1:~&gt; module load intel
+
+user@service1:~&gt; module list
+Currently Loaded Modulefiles:
+  <span class="m">1</span><span class="o">)</span> intel/2016.4.072
+
+user@service1:~&gt; module unload intel
+
+user@service1:~&gt; module list
+No Modulefiles Currently Loaded.
+</pre></div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">lobocug-at-nacad</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navegação</h3>
+<p class="caption"><span class="caption-text">Conteúdo:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introdução</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Module Environment</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="introduction.html" title="capítulo anterior">Introdução</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Busca rápida</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Ir" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, NACAD-COPPE-UFRJ.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/ug/modules.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

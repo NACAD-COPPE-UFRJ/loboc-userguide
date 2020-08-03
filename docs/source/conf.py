@@ -18,8 +18,8 @@
 # -- Project information -----------------------------------------------------
 
 project = 'lobocug-at-nacad'
-copyright = '2020, Albino Aveleda'
-author = 'Albino Aveleda'
+copyright = '2020, NACAD-COPPE-UFRJ'
+author = '@Albino'
 
 # The full version, including alpha/beta/rc tags
 release = '0.0.1'

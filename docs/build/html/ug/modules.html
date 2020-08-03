@@ -36,6 +36,7 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Índice" href="../genindex.html" />
     <link rel="search" title="Buscar" href="../search.html" />
+    <link rel="next" title="PBSPro" href="pbs.html" />
     <link rel="prev" title="Introdução" href="introduction.html" /> 
 </head>
 
@@ -53,6 +54,9 @@
             <a href="../index.html" class="icon icon-home"> lobocug-at-nacad
           
 
+          
+            
+            <img src="../_static/logonacad2.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -84,6 +88,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Introdução</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Module Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pbs.html">PBSPro</a></li>
 </ul>
 
             
@@ -132,14 +137,7 @@
       <li>Module Environment</li>
     
     
-      <li class="wy-breadcrumbs-aside">
-        
-            
-            <a href="../_sources/ug/modules.rst.txt" rel="nofollow"> View page source</a>
-          
-        
-      </li>
-    
+
   </ul>
 
   
@@ -150,8 +148,8 @@
             
   <div class="section" id="module-environment">
 <h1>Module Environment<a class="headerlink" href="#module-environment" title="Link permanente para este título">¶</a></h1>
-<p>Introdução:
-O module é usado para facilitar o chaveamento de ambientes de programação. Esta ferramenta permite que o usuário escolha qual(is) ferramenta(s) deseja usar, como por exemplo, versão do compilador, biblioteca matemática, MPI, etc.</p>
+<p><strong>Introdução</strong></p>
+<p>O module é usado para facilitar o chaveamento de ambientes de programação. Esta ferramenta permite que o usuário escolha qual(is) ferramenta(s) deseja usar, como por exemplo, versão do compilador, biblioteca matemática, MPI, etc.</p>
 <p><strong>Utilização do Module</strong></p>
 <p>Comandos basicos do module.</p>
 <table class="docutils align-default">
@@ -192,22 +190,22 @@ No Modulefiles Currently Loaded.
 <p>O comando abaixo lista os módulos disponiveis. É importante observar que os módulos são separados por grupos. Deve-se ter o cuidado de utiliza-lo de forma correta. Por exemplo, os modulos abaixo do /sw/apps/pgi16/modulefiles devem ser utilizado junto com o compilador PGI. Outro exemplo, uma das implementações do padrão MPI é feita através do mvapich e este por sua vez tem 3 versões diferentes, uma para cada compilador (PGI, Intel e GNU).</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>user@service1:~&gt; module avail
 
---------------------------------------- /usr/share/modules/modulefiles   ---------------------------------------
+------------------------------- /usr/share/modules/modulefiles -----------------------------------
 mpt/2.13    perfboost   perfcatcher
 
------------------------------------------ /sw/apps/pgi16/modulefiles -----------------------------------------
-hdf5/1.8.10p1/2016                pgi/16.7<span class="o">(</span>default<span class="o">)</span>                 pnetcdf/1.6.1/mpich-3.2/2016
-mvapich/2.1/2016                  pgi/2016                          pnetcdf/1.6.1/mvapich2-2.1/2016
-netcdf/4.3.3.1/2016               pgi64/16.5                        pnetcdf/1.6.1/openmpi-1.10.2/2016
-openmpi/1.10.2/2016               pgi64/16.7<span class="o">(</span>default<span class="o">)</span>               PrgEnv-pgi/16.5
-pgi/16.5                          pgi64/2016                        PrgEnv-pgi/16.7<span class="o">(</span>default<span class="o">)</span>
+-------------------------------- /sw/apps/pgi16/modulefiles --------------------------------------
+hdf5/1.8.10p1/2016      pgi/16.7<span class="o">(</span>default<span class="o">)</span>                 pnetcdf/1.6.1/mpich-3.2/2016
+mvapich/2.1/2016        pgi/2016                          pnetcdf/1.6.1/mvapich2-2.1/2016
+netcdf/4.3.3.1/2016     pgi64/16.5                        pnetcdf/1.6.1/openmpi-1.10.2/2016
+openmpi/1.10.2/2016     pgi64/16.7<span class="o">(</span>default<span class="o">)</span>               PrgEnv-pgi/16.5
+pgi/16.5                pgi64/2016                        PrgEnv-pgi/16.7<span class="o">(</span>default<span class="o">)</span>
 
------------------------------------------ /sw/apps/suse/modulefiles - -----------------------------------------
-mvapich-gnu/2.2                 openblas/multi-threaded/0.2.18  openblas/single-threaded/0.2.18 singularity
-mvapich-intel/2.2               openblas/multi-threaded/0.2.19  openblas/single-threaded/0.2.19
+--------------------------------- /sw/apps/suse/modulefiles --------------------------------------
+mvapich-gnu/2.2      openblas/multi-threaded/0.2.18  openblas/single-threaded/0.2.18 singularity
+mvapich-intel/2.2    openblas/multi-threaded/0.2.19  openblas/single-threaded/0.2.19
 
----------------------------------------------- /sw/modulefiles -----------------------------------------------
-intel/2016.3.210          intel/2016.4.072<span class="o">(</span>default<span class="o">)</span> java/jdk/1.8.0_102        java/jre/1.8.0_102
+-------------------------------------- /sw/modulefiles -------------------------------------------
+intel/2016.3.210     intel/2016.4.072<span class="o">(</span>default<span class="o">)</span> java/jdk/1.8.0_102        java/jre/1.8.0_102
 </pre></div>
 </div>
 <p>Obtendo informações sobre os módulos.</p>
@@ -260,6 +258,8 @@ No Modulefiles Currently Loaded.
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="pbs.html" class="btn btn-neutral float-right" title="PBSPro" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="introduction.html" class="btn btn-neutral float-left" title="Introdução" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Introdução &mdash; documentação lobocug-at-nacad 0.0.1</title>
+  <title>PBSPro &mdash; documentação lobocug-at-nacad 0.0.1</title>
   
 
   
@@ -36,8 +36,7 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Índice" href="../genindex.html" />
     <link rel="search" title="Buscar" href="../search.html" />
-    <link rel="next" title="Module Environment" href="modules.html" />
-    <link rel="prev" title="LoboC - Guia do Usuário" href="../index.html" /> 
+    <link rel="prev" title="Module Environment" href="modules.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -86,9 +85,9 @@
             
               <p class="caption"><span class="caption-text">Conteúdo:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Introdução</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introdução</a></li>
 <li class="toctree-l1"><a class="reference internal" href="modules.html">Module Environment</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pbs.html">PBSPro</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">PBSPro</a></li>
 </ul>
 
             
@@ -134,7 +133,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>Introdução</li>
+      <li>PBSPro</li>
     
     
 
@@ -146,76 +145,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="introducao">
-<h1>Introdução<a class="headerlink" href="#introducao" title="Link permanente para este título">¶</a></h1>
-<p>O Supercomputador Lobo Carneiro possui capacidade de 226 teraflops, isto é, pode executar 226 trilhões de operações matemáticas por segundo.</p>
-<p>O sistema de engenharia montado para o Lobo Carneiro permite que ele prescinda do acompanhamento presencial, como é a regra para os demais computadores de alto desempenho em atividade no Brasil. Sua instalação foi inédita do ponto de vista do controle e da automação, mas para isso foi necessário um alto nível de automação. Refrigeração e no-breaks precisam dialogar com o computador. O desligamento é preparado para ocorrer em temperaturas confortáveis, de forma que o equipamento não seja exposto a situações críticas. Há múltiplas camadas de proteção. Também há checkpoints para a recuperação dos trabalhos, quando ocorrer esse desligamento.</p>
-<p><strong>HPE-SGI ICE-X</strong></p>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 47%" />
-<col style="width: 53%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p>504 CPUs Intel Xeon (Haswell)</p></td>
-<td><p>6048 cores</p></td>
-</tr>
-<tr class="row-even"><td><p>Total de Nós de processamento</p></td>
-<td><p>252</p></td>
-</tr>
-<tr class="row-odd"><td><p>Total de Memória RAM</p></td>
-<td><p>16 TBytes (distribuída)</p></td>
-</tr>
-<tr class="row-even"><td><p>Sistema de arquivo paralelo</p></td>
-<td><p>Intel Lustre (500 TBytes)</p></td>
-</tr>
-<tr class="row-odd"><td><p>Armazenamento em disco</p></td>
-<td><p>60 TBytes</p></td>
-</tr>
-<tr class="row-even"><td><p>Rede</p></td>
-<td><p>Infiniband FDR - 56 Gbs (Hypercube)</p></td>
-</tr>
-<tr class="row-odd"><td><p>Sistemas operacional</p></td>
-<td><p>Suse Linux Enterprise Server (SLES)</p></td>
-</tr>
-<tr class="row-even"><td><p>Compiladores</p></td>
-<td><p>Intel, PGI e GNU (Fortran-90 e C/C++)</p></td>
-</tr>
-<tr class="row-odd"><td><p>Bibliotecas MPI</p></td>
-<td><p>MPT, Intel MPI, MVAPICH e OpenMPI</p></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Especificação do nó de processamento</strong></p>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 67%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p>Modelo</p></td>
-<td><p>Intel(R) Xeon(R) CPU E5-2670 v3 &#64; 2.30GHz (“Haswell”)</p></td>
-</tr>
-<tr class="row-even"><td><p>Total cores por node</p></td>
-<td><p>24 cores on two sockets (12 cores/socket)</p></td>
-</tr>
-<tr class="row-odd"><td><p>Hardware threads per core</p></td>
-<td><p>2</p></td>
-</tr>
-<tr class="row-even"><td><p>Hardware threads per node</p></td>
-<td><p>24 x 2 = 48</p></td>
-</tr>
-<tr class="row-odd"><td><p>Clock rate</p></td>
-<td><p>2.3 GHz nominal</p></td>
-</tr>
-<tr class="row-even"><td><p>RAM</p></td>
-<td><p>64 GB  DDR4</p></td>
-</tr>
-<tr class="row-odd"><td><p>Local storage</p></td>
-<td><p>0 GB - diskless</p></td>
-</tr>
-</tbody>
-</table>
+  <div class="section" id="pbspro">
+<h1>PBSPro<a class="headerlink" href="#pbspro" title="Link permanente para este título">¶</a></h1>
 </div>
 
 
@@ -226,10 +157,8 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="modules.html" class="btn btn-neutral float-right" title="Module Environment" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
-      
-        <a href="../index.html" class="btn btn-neutral float-left" title="LoboC - Guia do Usuário" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="modules.html" class="btn btn-neutral float-left" title="Module Environment" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

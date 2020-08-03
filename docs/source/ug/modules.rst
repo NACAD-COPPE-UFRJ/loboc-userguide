@@ -1,7 +1,8 @@
 Module Environment
 ==================
 
-Introdução:
+**Introdução**
+
 O module é usado para facilitar o chaveamento de ambientes de programação. Esta ferramenta permite que o usuário escolha qual(is) ferramenta(s) deseja usar, como por exemplo, versão do compilador, biblioteca matemática, MPI, etc.
 
 **Utilização do Module**
@@ -38,22 +39,22 @@ O comando abaixo lista os módulos disponiveis. É importante observar que os m�
 
   user@service1:~> module avail
   
-  --------------------------------------- /usr/share/modules/modulefiles   ---------------------------------------
+  ------------------------------- /usr/share/modules/modulefiles -----------------------------------
   mpt/2.13    perfboost   perfcatcher
   
-  ----------------------------------------- /sw/apps/pgi16/modulefiles -----------------------------------------
-  hdf5/1.8.10p1/2016                pgi/16.7(default)                 pnetcdf/1.6.1/mpich-3.2/2016
-  mvapich/2.1/2016                  pgi/2016                          pnetcdf/1.6.1/mvapich2-2.1/2016
-  netcdf/4.3.3.1/2016               pgi64/16.5                        pnetcdf/1.6.1/openmpi-1.10.2/2016
-  openmpi/1.10.2/2016               pgi64/16.7(default)               PrgEnv-pgi/16.5
-  pgi/16.5                          pgi64/2016                        PrgEnv-pgi/16.7(default)
+  -------------------------------- /sw/apps/pgi16/modulefiles --------------------------------------
+  hdf5/1.8.10p1/2016      pgi/16.7(default)                 pnetcdf/1.6.1/mpich-3.2/2016
+  mvapich/2.1/2016        pgi/2016                          pnetcdf/1.6.1/mvapich2-2.1/2016
+  netcdf/4.3.3.1/2016     pgi64/16.5                        pnetcdf/1.6.1/openmpi-1.10.2/2016
+  openmpi/1.10.2/2016     pgi64/16.7(default)               PrgEnv-pgi/16.5
+  pgi/16.5                pgi64/2016                        PrgEnv-pgi/16.7(default)
   
-  ----------------------------------------- /sw/apps/suse/modulefiles - -----------------------------------------
-  mvapich-gnu/2.2                 openblas/multi-threaded/0.2.18  openblas/single-threaded/0.2.18 singularity
-  mvapich-intel/2.2               openblas/multi-threaded/0.2.19  openblas/single-threaded/0.2.19
+  --------------------------------- /sw/apps/suse/modulefiles --------------------------------------
+  mvapich-gnu/2.2      openblas/multi-threaded/0.2.18  openblas/single-threaded/0.2.18 singularity
+  mvapich-intel/2.2    openblas/multi-threaded/0.2.19  openblas/single-threaded/0.2.19
   
-  ---------------------------------------------- /sw/modulefiles -----------------------------------------------
-  intel/2016.3.210          intel/2016.4.072(default) java/jdk/1.8.0_102        java/jre/1.8.0_102
+  -------------------------------------- /sw/modulefiles -------------------------------------------
+  intel/2016.3.210     intel/2016.4.072(default) java/jdk/1.8.0_102        java/jre/1.8.0_102
 
 Obtendo informações sobre os módulos.
 

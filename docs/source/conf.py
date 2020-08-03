@@ -53,6 +53,8 @@ language = 'pt_BR'
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = []
 
+# NACAD logo
+html_logo = 'images/logonacad2.png'
 
 # -- Options for HTML output -------------------------------------------------
 

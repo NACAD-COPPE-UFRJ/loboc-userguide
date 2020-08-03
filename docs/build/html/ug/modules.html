@@ -200,6 +200,16 @@ netcdf/4.3.3.1/2016     pgi64/16.5                        pnetcdf/1.6.1/openmpi-
 openmpi/1.10.2/2016     pgi64/16.7<span class="o">(</span>default<span class="o">)</span>               PrgEnv-pgi/16.5
 pgi/16.5                pgi64/2016                        PrgEnv-pgi/16.7<span class="o">(</span>default<span class="o">)</span>
 
+------------------------------- /sw/apps/suse/intel17/modulefiles --------------------------------
+hdf5/1.10.5-i17    nco/4.7.5          phdf5/1.10.5-i17   pio/2.3.0          R/3.5.3
+hdf5/1.8.18        ncview/2.1.7       phdf5/1.8.18       pnetcdf/1.8.1      szip/2.1.1
+hdf5/1.8.19        netcdf-intel/4.5.0 phdf5/1.8.19       R/3.5.1            udunits/2.2.26
+
+------------------------------- /sw/apps/suse/intel19/modulefiles --------------------------------
+cdo/1.9.7.1           netcdf-parallel/4.7.2 phdf5/1.10.5          R/3.6.0
+hdf5/1.10.5           netcdf-serial/4.7.0   pnetcdf/1.11.2        szip-i19/2.1.1
+netcdf-parallel/4.7.0 netcdf-serial/4.7.2   pnetcdf/1.12.0        wgrib2/2.0.8
+
 --------------------------------- /sw/apps/suse/modulefiles --------------------------------------
 mvapich-gnu/2.2      openblas/multi-threaded/0.2.18  openblas/single-threaded/0.2.18 singularity
 mvapich-intel/2.2    openblas/multi-threaded/0.2.19  openblas/single-threaded/0.2.19
@@ -207,6 +217,10 @@ mvapich-intel/2.2    openblas/multi-threaded/0.2.19  openblas/single-threaded/0.
 -------------------------------------- /sw/modulefiles -------------------------------------------
 intel/2016.3.210     intel/2016.4.072<span class="o">(</span>default<span class="o">)</span> java/jdk/1.8.0_102        java/jre/1.8.0_102
 </pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Repare os diretórios dos modulefiles. Eles mostram a dependência entre os pacotes. Por exemplo, o <code class="docutils literal notranslate"><span class="pre">/sw/apps/suse/intel17/modulefiles</span></code> mostra os pacotes que foram compilados usando o intel17. O <code class="docutils literal notranslate"><span class="pre">/sw/apps/suse/intel19/modulefiles</span></code> que foi compilado com o intel19. Idem para os demais diretórios.</p>
 </div>
 <p>Obtendo informações sobre os módulos.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>user@service1:~&gt; module <span class="nb">help</span> intel

@@ -1,11 +1,16 @@
+******************
 Module Environment
-==================
+******************
 
-**Introdução**
+.. contents:: Conteúdo
+
+Introdução
+==========
 
 O module é usado para facilitar o chaveamento de ambientes de programação. Esta ferramenta permite que o usuário escolha qual(is) ferramenta(s) deseja usar, como por exemplo, versão do compilador, biblioteca matemática, MPI, etc.
 
-**Utilização do Module**
+Utilização do Module
+====================
 
 Comandos basicos do module.
 
@@ -23,7 +28,8 @@ Comandos basicos do module.
 | module unload modulefile [modulefile ...] | descarrega o(s) módulo(s) correspondente(s) |
 +-------------------------------------------+---------------------------------------------+
 
-**Exemplos de Uso do Module**
+Exemplos de Uso do Module
+=========================
 
 Segue abaixo alguns exemplos de como utilizar o comando module.
 Nenhum módulo é carregado por padrão.

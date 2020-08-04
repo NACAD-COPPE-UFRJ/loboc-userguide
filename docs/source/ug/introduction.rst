@@ -1,11 +1,15 @@
+**********
 Introdução
-==========
+**********
+
+.. contents:: Conteúdo
+
+HPE-SGI ICE-X
+=============
 
 O Supercomputador Lobo Carneiro possui capacidade de 226 teraflops, isto é, pode executar 226 trilhões de operações matemáticas por segundo.
 
 O sistema de engenharia montado para o Lobo Carneiro permite que ele prescinda do acompanhamento presencial, como é a regra para os demais computadores de alto desempenho em atividade no Brasil. Sua instalação foi inédita do ponto de vista do controle e da automação, mas para isso foi necessário um alto nível de automação. Refrigeração e no-breaks precisam dialogar com o computador. O desligamento é preparado para ocorrer em temperaturas confortáveis, de forma que o equipamento não seja exposto a situações críticas. Há múltiplas camadas de proteção. Também há checkpoints para a recuperação dos trabalhos, quando ocorrer esse desligamento.
-
-**HPE-SGI ICE-X**
 
 +----------------------------------+---------------------------------------+
 | 504 CPUs Intel Xeon (Haswell)    | 6048 cores                            |
@@ -27,7 +31,8 @@ O sistema de engenharia montado para o Lobo Carneiro permite que ele prescinda d
 | Bibliotecas MPI                  | MPT, Intel MPI, MVAPICH e OpenMPI     |
 +----------------------------------+---------------------------------------+
 
-**Especificação do nó de processamento**
+Especificação do nó de processamento
+====================================
 
 +---------------------------+-------------------------------------------------------+
 | Modelo                    | Intel(R) Xeon(R) CPU E5-2670 v3 @ 2.30GHz ("Haswell") |

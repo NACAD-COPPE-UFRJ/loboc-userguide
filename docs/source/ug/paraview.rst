@@ -1,12 +1,17 @@
+********
 Paraview
-========
+********
 
-**Introdução**
+.. contents:: Conteúdo
+
+Introdução
+==========
 
 Paraview_ é um programa de visualização *opensource* que está disponível no LoboC.
 Para poder utilizar siga as orientações abaixo.
 
-**Requisitos**
+Pré-requisitos
+==============
 
 Para utilizar o Paraview é necessário criar um túnel SSH conforme ilustrado na figura_ abaixo 
 
@@ -20,9 +25,10 @@ Para utilizar o Paraview é necessário criar um túnel SSH conforme ilustrado n
 
 .. note::
 
-  A versão do Paraview instalado no cliente *deve* ser a mesma do servidor.
+  A versão do Paraview instalado no cliente deve ser a :strong:`mesma` do servidor.
 
-**Etapas**
+Etapas
+======
 
 1) :guilabel:`Workstation`: Configure o client Paraview para se conectar ao LoboC.
 

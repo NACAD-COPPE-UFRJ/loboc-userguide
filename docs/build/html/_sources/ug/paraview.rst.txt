@@ -77,9 +77,6 @@ Etapas
 
 .. code-block:: bash
   
-  Waiting for client...
-  Connection URL: cs://r2i2n9:11111
-  Accepting connection(s): r2i2n9:11111
   Client connected.
 
 Repare na figura abaixo que no *Pipeline Browser* mostra a conexão com o LoboC.

@@ -16,9 +16,3 @@ LoboC - Guia do Usuário
    ug/paraview.rst
 
 
-Índices e tabelas
-=================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`

@@ -41,6 +41,10 @@ Para utilizar o Paraview é necessário criar um túnel SSH conforme ilustrado n
   
   user@r2i2n9:~> 
 
+.. warning::
+  
+  O tempo máximo de um job iterativo (*walltime*) é de no máximo de 2 horas.
+
 3) :guilabel:`Terminal 2`: Neste exemplo o node alocado foi o ``r2i2n9``. Faça uma nova conexão do *t2* para o LoboC fazendo um túnel SSH para o node alocado.
 
 .. code-block:: bash

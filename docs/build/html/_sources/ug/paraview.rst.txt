@@ -11,6 +11,9 @@ Para poder utilizar siga as orientações abaixo.
 Para utilizar o Paraview é necessário criar um túnel SSH conforme ilustrado na figura_ abaixo 
 
 .. figure:: ../images/Rc-tunnel.png
+   :align: center
+   
+   Topologia do túnel
 
 - 2 terminais conectados ao LoboC. Os terminais serão identificados como ``t1$`` e ``t2$``
 - cliente paraview instalado na workstation de visualização (computador do usuário)
@@ -26,6 +29,9 @@ Para utilizar o Paraview é necessário criar um túnel SSH conforme ilustrado n
 - Selecione no menu do Paraview a opção ``File->Connect...`` e crie uma nova configuração conforme ilustrado abaixo.
 
 .. figure:: ../images/pv-001.png
+   :align: center
+   
+   Configuração do servidor
 
 - Depois clique em ``Configure`` e ``Save``.
 
@@ -73,7 +79,9 @@ Para utilizar o Paraview é necessário criar um túnel SSH conforme ilustrado n
 Repare na figura abaixo que no *Pipeline Browser* mostra a conexão com o LoboC.
 
 .. figure:: ../images/pv-003.png
-
+   :align: center
+   
+   Sessão do paraview
 
 6) Ao terminar o uso vá no menu do Paraview na workstation e selecione ``File->Disconnect``. Depois vá ao terminal 1 (*t1*) e digite ``exit``. Para finalizar feche todas as conexões de *t1* e *t2*.
 

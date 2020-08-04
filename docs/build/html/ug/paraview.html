@@ -1,0 +1,273 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="pt-BR" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="pt-BR" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Paraview &mdash; documentação lobocug-at-nacad 0.0.1</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Buscar" href="../search.html" />
+    <link rel="prev" title="PBSPro" href="pbs.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> lobocug-at-nacad
+          
+
+          
+            
+            <img src="../_static/logo2.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Conteúdo:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introdução</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">Module Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pbs.html">PBSPro</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Paraview</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">lobocug-at-nacad</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Paraview</li>
+    
+    
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="paraview">
+<h1>Paraview<a class="headerlink" href="#paraview" title="Link permanente para este título">¶</a></h1>
+<p><strong>Introdução</strong></p>
+<p><a class="reference external" href="https://www.paraview.org/">Paraview</a> é um programa de visualização <em>opensource</em> que está disponível no LoboC.
+Para poder utilizar siga as orientações abaixo.</p>
+<p><strong>Requisitos</strong></p>
+<p>Para utilizar o Paraview é necessário criar um túnel SSH conforme ilustrado na <a class="reference external" href="https://www.paraview.org/Wiki/Reverse_connection_and_port_forwarding">figura</a> abaixo</p>
+<div class="figure align-default">
+<img alt="../_images/Rc-tunnel.png" src="../_images/Rc-tunnel.png" />
+</div>
+<ul class="simple">
+<li><p>2 terminais conectados ao LoboC. Os terminais serão identificados como <code class="docutils literal notranslate"><span class="pre">t1$</span></code> e <code class="docutils literal notranslate"><span class="pre">t2$</span></code></p></li>
+<li><p>cliente paraview instalado na workstation de visualização (computador do usuário)</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>A versão do Paraview instalado no cliente <em>deve</em> ser a mesma do servidor.</p>
+</div>
+<p><strong>Etapas</strong></p>
+<ol class="arabic simple">
+<li><p><span class="guilabel">Workstation</span>: Configure o client Paraview para se conectar ao LoboC.</p></li>
+</ol>
+<ul class="simple">
+<li><p>Selecione no menu do Paraview a opção <code class="docutils literal notranslate"><span class="pre">File-&gt;Connect...</span></code> e crie uma nova configuração conforme ilustrado abaixo.</p></li>
+</ul>
+<div class="figure align-default">
+<img alt="../_images/pv-001.png" src="../_images/pv-001.png" />
+</div>
+<ul class="simple">
+<li><p>Depois clique em <code class="docutils literal notranslate"><span class="pre">Configure</span></code> e <code class="docutils literal notranslate"><span class="pre">Save</span></code>.</p></li>
+</ul>
+<ol class="arabic simple" start="2">
+<li><p><span class="guilabel">Terminal 1</span>: Conecte-se ao LoboC do terminal 1, onde <cite>xxx</cite> corresponde a porta SSH de conexão com o LoboC. Carregue o module do Paraview, submeta um job iterativo e aguarde a alocação do node, conforme mostrado abaixo.</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>t1$ ssh -p xxx user@loboc.nacad.ufrj.br
+user@service1:~&gt; module load ParaView/5.8.0
+user@service1:~&gt; qsub -I -V
+qsub: waiting <span class="k">for</span> job <span class="m">232826</span>.service1 to start
+qsub: job <span class="m">232826</span>.service1 ready
+
+user@r2i2n9:~&gt;
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p><span class="guilabel">Terminal 2</span>: Neste exemplo o node alocado foi o <code class="docutils literal notranslate"><span class="pre">r2i2n9</span></code>. Faça uma nova conexão do <em>t2</em> para o LoboC fazendo um túnel SSH para o node alocado.</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>t2$ ssh -L <span class="m">11111</span>:r2i2n9:11111 -p xxx user@loboc.nacad.ufrj.br
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p><span class="guilabel">Terminal 1</span>: Volte ao <em>t1</em>. Carregue o module do Paraview no node e inicie o <code class="docutils literal notranslate"><span class="pre">pvserver</span></code></p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>user@r2i2n9:~&gt; module load ParaView/5.8.0
+user@r2i2n9:~&gt; pvserver --server-port<span class="o">=</span><span class="m">11111</span>
+Waiting <span class="k">for</span> client...
+Connection URL: cs://r2i2n9:11111
+Accepting connection<span class="o">(</span>s<span class="o">)</span>: r2i2n9:11111
+</pre></div>
+</div>
+<ol class="arabic simple" start="5">
+<li><p><span class="guilabel">Workstation</span>: Conecte ao LoboC selecionando a configuração feita para o LoboC e aguarde aparecer a mensagem abaixo no terminal 1 (<cite>t1</cite>). Pronto já pode usar o paraview.</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Waiting <span class="k">for</span> client...
+Connection URL: cs://r2i2n9:11111
+Accepting connection<span class="o">(</span>s<span class="o">)</span>: r2i2n9:11111
+Client connected.
+</pre></div>
+</div>
+<p>Repare na figura abaixo que no <em>Pipeline Browser</em> mostra a conexão com o LoboC.</p>
+<div class="figure align-default">
+<img alt="../_images/pv-003.png" src="../_images/pv-003.png" />
+</div>
+<ol class="arabic simple" start="6">
+<li><p>Ao terminar o uso vá no menu do Paraview na workstation e selecione <code class="docutils literal notranslate"><span class="pre">File-&gt;Disconnect</span></code>. Depois vá ao terminal 1 (<em>t1</em>) e digite <code class="docutils literal notranslate"><span class="pre">exit</span></code>. Para finalizar feche todas as conexões de <em>t1</em> e <em>t2</em>.</p></li>
+</ol>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="pbs.html" class="btn btn-neutral float-left" title="PBSPro" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, NACAD-COPPE-UFRJ
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

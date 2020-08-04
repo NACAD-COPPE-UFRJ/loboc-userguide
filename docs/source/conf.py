@@ -54,7 +54,7 @@ language = 'pt_BR'
 exclude_patterns = []
 
 # NACAD logo
-html_logo = 'images/logonacad2.png'
+html_logo = 'images/logo2.png'
 
 # -- Options for HTML output -------------------------------------------------
 

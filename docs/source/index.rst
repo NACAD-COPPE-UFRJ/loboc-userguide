@@ -13,7 +13,7 @@ LoboC - Guia do Usuário
    ug/introduction.rst
    ug/modules.rst
    ug/pbs.rst
-
+   ug/paraview.rst
 
 
 Índices e tabelas

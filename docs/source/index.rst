@@ -8,6 +8,7 @@ LoboC - Guia do Usuário
 
 .. toctree::
    :maxdepth: 2
+   :numbered:
    :caption: Conteúdo:
 
    ug/introduction.rst

@@ -111,7 +111,7 @@ latex_elements = {
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
     (master_doc, 'UserGuideNACAD.tex', 'UserGuide@NACAD Documentation',
-     'Núcleo Avançado de COmputação de Alto Desempenho', 'manual'),
+     'Núcleo Avançado de Computação de Alto Desempenho', 'manual'),
 ]
 
 
@@ -132,8 +132,8 @@ man_pages = [
 #  dir menu entry, description, category)
 texinfo_documents = [
     (master_doc, 'UserGuideNACAD', 'UserGuide@NACAD Documentation',
-     author, 'UserGuideNACAD', 'One line description of project.',
-     'Miscellaneous'),
+     author, 'UserGuideNACAD', 'User Guide Documentation.',
+     'Documentations'),
 ]
 
 
@@ -155,5 +155,5 @@ epub_title = project
 epub_exclude_files = ['search.html']
 
 # To allow css styling
-def setup(app):
-    app.add_stylesheet('custom.css')
+#def setup(app):
+#    app.add_css_file('custom.css')

@@ -75,7 +75,7 @@ O comando abaixo lista os módulos disponiveis. É importante observar que os m�
 
 .. note::
   
-  Repare os diretórios dos modulefiles. Eles mostram a dependência entre os pacotes. Por exemplo, o ``/sw/apps/suse/intel17/modulefiles`` mostra os pacotes que foram compilados usando o intel17. O ``/sw/apps/suse/intel19/modulefiles`` que foi compilado com o intel19. Idem para os demais diretórios.
+  Repare os diretórios dos modulefiles. Eles mostram a dependência entre os pacotes. Por exemplo, os modules abaixo do diretório ``/sw/apps/suse/intel17/modulefiles`` são os pacotes que foram compilados usando o compilador intel17. O mesmo acontece em outros diretórios. Outro exemplo, o diretório ``/sw/apps/suse/intel19/modulefiles`` contém os pacotes compilados com o intel19. Recomenda-se que utilize o mesmo compilador, no caso de dependência de pacotes, para evitar problemas de incompatibilidade.
 
 Obtendo informações sobre os módulos.
 

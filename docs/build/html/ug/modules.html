@@ -34,7 +34,6 @@
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
     <link rel="index" title="Índice" href="../genindex.html" />
     <link rel="search" title="Buscar" href="../search.html" />
     <link rel="next" title="3. PBSPro" href="pbs.html" />
@@ -211,7 +210,7 @@ Nenhum módulo é carregado por padrão.</p>
 No Modulefiles Currently Loaded.
 </pre></div>
 </div>
-<p>O comando abaixo lista os módulos disponiveis. É importante observar que os módulos são separados por grupos. Deve-se ter o cuidado de utiliza-lo de forma correta. Por exemplo, os modulos abaixo do /sw/apps/pgi16/modulefiles devem ser utilizado junto com o compilador PGI. Outro exemplo, uma das implementações do padrão MPI é feita através do mvapich e este por sua vez tem 3 versões diferentes, uma para cada compilador (PGI, Intel e GNU).</p>
+<p>O comando abaixo lista os módulos disponiveis. É importante observar que os módulos são separados por grupos. Deve-se ter o cuidado de utiliza-lo de forma correta. Por exemplo, os modulos abaixo do <code class="docutils literal notranslate"><span class="pre">/sw/apps/pgi16/modulefiles</span></code> devem ser utilizado junto com o compilador PGI. Outro exemplo, uma das implementações do padrão MPI é feita através do <code class="docutils literal notranslate"><span class="pre">mvapich</span></code> e este por sua vez tem 3 versões diferentes, uma para cada compilador (PGI, Intel e GNU).</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>user@service1:~&gt; module avail
 
 ------------------------------- /usr/share/modules/modulefiles -----------------------------------
@@ -245,6 +244,10 @@ intel/2016.3.210     intel/2016.4.072<span class="o">(</span>default<span class=
 <div class="admonition note">
 <p class="admonition-title">Nota</p>
 <p>Repare os diretórios dos modulefiles. Eles mostram a dependência entre os pacotes. Por exemplo, os modules abaixo do diretório <code class="docutils literal notranslate"><span class="pre">/sw/apps/suse/intel17/modulefiles</span></code> são os pacotes que foram compilados usando o compilador intel17. O mesmo acontece em outros diretórios. Outro exemplo, o diretório <code class="docutils literal notranslate"><span class="pre">/sw/apps/suse/intel19/modulefiles</span></code> contém os pacotes compilados com o intel19. Recomenda-se que utilize o mesmo compilador, no caso de dependência de pacotes, para evitar problemas de incompatibilidade.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Aviso</p>
+<p>Os modules (incluindo as versões) utilizados para compilar <strong>devem ser os mesmos</strong> a serem incluidos no script de submissão do job.</p>
 </div>
 <p>Obtendo informações sobre os módulos.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>user@service1:~&gt; module <span class="nb">help</span> intel

@@ -34,7 +34,6 @@
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
     <link rel="index" title="Índice" href="../genindex.html" />
     <link rel="search" title="Buscar" href="../search.html" />
     <link rel="prev" title="3. PBSPro" href="pbs.html" /> 
@@ -203,7 +202,7 @@ Para poder utilizar siga as orientações abaixo.</p>
 <li><p>Depois clique em <code class="docutils literal notranslate"><span class="pre">Configure</span></code> e <code class="docutils literal notranslate"><span class="pre">Save</span></code>.</p></li>
 </ul>
 <ol class="arabic simple" start="2">
-<li><p><span class="guilabel">Terminal 1</span>: Conecte-se ao LoboC do terminal 1, onde <cite>xxx</cite> corresponde a porta SSH de conexão com o LoboC. Carregue o module do Paraview, submeta um job iterativo e aguarde a alocação do node, conforme mostrado abaixo.</p></li>
+<li><p><span class="guilabel">Terminal 1</span>: Conecte-se ao LoboC do <strong>Terminal 1</strong>, onde <cite>xxx</cite> corresponde a porta SSH de conexão com o LoboC. Carregue o module do Paraview, submeta um job iterativo e aguarde a alocação do node, conforme mostrado abaixo.</p></li>
 </ol>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>t1$ ssh -p xxx user@loboc.nacad.ufrj.br
 user@service1:~&gt; module load ParaView/5.8.0
@@ -235,7 +234,7 @@ Accepting connection<span class="o">(</span>s<span class="o">)</span>: r2i2n9:11
 </pre></div>
 </div>
 <ol class="arabic simple" start="5">
-<li><p><span class="guilabel">Workstation</span>: Conecte ao LoboC selecionando a configuração feita para o LoboC e aguarde aparecer a mensagem abaixo no terminal 1 (<cite>t1</cite>). Pronto já pode usar o paraview.</p></li>
+<li><p><span class="guilabel">Workstation</span>: Conecte ao LoboC selecionando a configuração feita para o LoboC e aguarde aparecer a mensagem abaixo no <strong>Terminal 1</strong> (<cite>t1</cite>). Pronto já pode usar o paraview.</p></li>
 </ol>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Client connected.
 </pre></div>
@@ -246,7 +245,7 @@ Accepting connection<span class="o">(</span>s<span class="o">)</span>: r2i2n9:11
 <p class="caption"><span class="caption-text">Sessão do paraview</span><a class="headerlink" href="#id4" title="Link Permanente para essa imagem">¶</a></p>
 </div>
 <ol class="arabic simple" start="6">
-<li><p>Ao terminar o uso vá no menu do Paraview na workstation e selecione <code class="docutils literal notranslate"><span class="pre">File-&gt;Disconnect</span></code>. Depois vá ao terminal 1 (<em>t1</em>) e digite <code class="docutils literal notranslate"><span class="pre">exit</span></code>. Para finalizar feche todas as conexões de <em>t1</em> e <em>t2</em>.</p></li>
+<li><p>Ao terminar o uso vá no menu do Paraview na workstation e selecione <code class="docutils literal notranslate"><span class="pre">File-&gt;Disconnect</span></code>. Depois vá ao <strong>Terminal 1</strong> (<em>t1</em>) e digite <code class="docutils literal notranslate"><span class="pre">exit</span></code>. Para finalizar feche todas as conexões em <em>t1</em> e <em>t2</em>.</p></li>
 </ol>
 </div>
 </div>

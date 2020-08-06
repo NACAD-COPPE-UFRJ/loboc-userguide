@@ -41,7 +41,7 @@ Etapas
 
 - Depois clique em ``Configure`` e ``Save``.
 
-2) :guilabel:`Terminal 1`: Conecte-se ao LoboC do terminal 1, onde `xxx` corresponde a porta SSH de conexão com o LoboC. Carregue o module do Paraview, submeta um job iterativo e aguarde a alocação do node, conforme mostrado abaixo.
+2) :guilabel:`Terminal 1`: Conecte-se ao LoboC do **Terminal 1**, onde `xxx` corresponde a porta SSH de conexão com o LoboC. Carregue o module do Paraview, submeta um job iterativo e aguarde a alocação do node, conforme mostrado abaixo.
 
 .. code-block:: bash
   
@@ -73,7 +73,7 @@ Etapas
   Connection URL: cs://r2i2n9:11111
   Accepting connection(s): r2i2n9:11111
 
-5) :guilabel:`Workstation`: Conecte ao LoboC selecionando a configuração feita para o LoboC e aguarde aparecer a mensagem abaixo no terminal 1 (`t1`). Pronto já pode usar o paraview.
+5) :guilabel:`Workstation`: Conecte ao LoboC selecionando a configuração feita para o LoboC e aguarde aparecer a mensagem abaixo no **Terminal 1** (`t1`). Pronto já pode usar o paraview.
 
 .. code-block:: bash
   
@@ -86,7 +86,7 @@ Repare na figura abaixo que no *Pipeline Browser* mostra a conexão com o LoboC.
    
    Sessão do paraview
 
-6) Ao terminar o uso vá no menu do Paraview na workstation e selecione ``File->Disconnect``. Depois vá ao terminal 1 (*t1*) e digite ``exit``. Para finalizar feche todas as conexões de *t1* e *t2*.
+6) Ao terminar o uso vá no menu do Paraview na workstation e selecione ``File->Disconnect``. Depois vá ao **Terminal 1** (*t1*) e digite ``exit``. Para finalizar feche todas as conexões em *t1* e *t2*.
 
 .. _Paraview: https://www.paraview.org/
 .. _figura: https://www.paraview.org/Wiki/Reverse_connection_and_port_forwarding

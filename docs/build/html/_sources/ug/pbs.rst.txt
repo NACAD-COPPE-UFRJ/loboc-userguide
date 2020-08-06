@@ -77,7 +77,7 @@ O script abaixo pode ser usado como base para qualquer tipo de aplicação.
    * - 1
      - SHELL utilizado para os comandos do job
    * - 2
-     - Aloca 1 node com 48 threads
+     - ``select=1`` aloca 1 node. ``ncpus=48`` aloca todos os 48 threads disponíveis no node
    * - 3
      - Total do tempo de processamento (*walltime*) do job
    * - 4
@@ -95,7 +95,7 @@ O script abaixo pode ser usado como base para qualquer tipo de aplicação.
 
 .. note::
 
-   Caso seja de interesse pode-se adicionar os parâmetros ``#PBS -M sua_conta@seu_dominio.com.br`` e ``#PBS -m ae``, como linhas *7* e *8*, caso queiram receber um e-mail com informações de quando o job terminou ou foi abortado. Caso use esta opção, por favor, verifique se o seu e-mail foi preenchido **corretamente**.
+   Caso seja de interesse pode-se incluir duas linhas com os parâmetros ``#PBS -M sua_conta@seu_dominio.com.br`` e ``#PBS -m ae``, logo após a linha *6*, caso queiram receber um e-mail com informações de quando o job terminar ou for abortado. Caso use esta opção, por favor, verifique se o seu e-mail foi preenchido **corretamente**.
 
 OpenMP
 ------
@@ -147,7 +147,7 @@ MPI
 
 .. note::
 
-   Repare nas linhas em destaque. A quantidade de processos MPI de um job pode ser definida pelo PBS incluindo o parâmetro ``:mpiprocs=24``. Desta maneira o parâmetro ``-np=24`` do ``mpirun`` pode ser omitido. Isto é uma grande vantagem pois facilita a manutenção do job caso haja alguma modificação na quantidade de processos MPI. Bastando para isso a modificação na primeira linha do job.
+   Repare nas linhas em destaque. A quantidade de processos MPI por nó de processamento pode ser definida pelo PBS incluindo o parâmetro ``:mpiprocs=24``. Desta maneira o parâmetro ``-np=48`` do ``mpirun`` pode ser omitido, isto é, (2 nodes x 24 procs = 48). Isto é uma grande vantagem pois facilita a manutenção do job caso haja alguma modificação na quantidade de processos MPI. Bastando para isso modificar apenas a primeira linha do job.
 
 .. note::
 
@@ -155,7 +155,7 @@ MPI
  
 .. hint:: 
 
-   Se o seu programa usufrui dos threads, os parâmetros ``mpiprocs`` e ``ompthreads`` podem ser modificados para ``:mpiprocs=48`` ou  ``:ompthreads=48`` ou **omitidos**, caso contrário mantenham como ``24``.
+   Se o seu programa usufrui dos threads, os parâmetros ``mpiprocs`` e ``ompthreads`` podem ser modificados para ``:mpiprocs=48`` ou  ``:ompthreads=48`` ou **omitidos**, caso contrário mantenham eles como ``24``.
 
 Submissão de job
 ================

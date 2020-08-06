@@ -20,17 +20,11 @@ O sistema de engenharia montado para o Lobo Carneiro permite que ele prescinda d
      - 252
    * - Total de Memória RAM
      - 16 TBytes (distribuída)
-   * - 504 CPUs Intel Xeon (Haswell)
-     - 6048 cores
-   * - Total de Nós de processamento
-     - 252
-   * - Total de Memória RAM
-     - 16 TBytes (distribuída)
    * - Sistema de arquivo paralelo
      - Intel Lustre (500 TBytes)
    * - Armazenamento em disco
      - 60 TBytes
-   * - Rede
+   * - Rede (Topologia)
      - Infiniband FDR - 56 Gbs (Hypercube)
    * - Sistemas operacional
      - Suse Linux Enterprise Server (SLES)
@@ -44,7 +38,7 @@ O sistema de engenharia montado para o Lobo Carneiro permite que ele prescinda d
 
    * - Modelo
      - Intel(R) Xeon(R) CPU E5-2670 v3 @ 2.30GHz ("Haswell")
-   * - Total cores por node
+   * - Total cores per node
      - 24 cores on two sockets (12 cores/socket)
    * - Hardware threads per core
      - 2

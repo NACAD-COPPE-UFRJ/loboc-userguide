@@ -4,8 +4,8 @@ PBSPro
 
 .. contents:: Conteúdo
 
-PBS Pro
-=======
+Introdução
+==========
 
 O `PBS Pro <https://www.altair.com/pbs-professional/>`_ é um *job scheduler open-source* baseado no original PBS code desenvolvido pela NASA. Agora a Altair Engineering possui e mantém o PBS Pro Scheduler.
 

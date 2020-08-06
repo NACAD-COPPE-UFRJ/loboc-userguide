@@ -23,7 +23,7 @@ Para utilizar o Paraview é necessário criar um túnel SSH conforme ilustrado n
 - 2 terminais conectados ao LoboC. Os terminais serão identificados como ``t1$`` e ``t2$``
 - cliente paraview instalado na workstation de visualização (computador do usuário)
 
-.. note::
+.. warning::
 
   A versão do Paraview instalado no cliente deve ser a :strong:`mesma` do servidor.
 
@@ -53,7 +53,7 @@ Etapas
   
   user@r2i2n9:~> 
 
-.. warning::
+.. note::
   
   O tempo máximo de um job iterativo (:emphasis:`walltime`) no LoboC é de 2 horas.
 
@@ -63,7 +63,7 @@ Etapas
   
   t2$ ssh -L 11111:r2i2n9:11111 -p xxx user@loboc.nacad.ufrj.br
 
-4) :guilabel:`Terminal 1`: Volte ao *t1*. Carregue o module do Paraview no node e inicie o ``pvserver``
+4) :guilabel:`Terminal 1`: Volte ao **Terminal 1** (*t1*). Carregue o module do Paraview no node e inicie o ``pvserver``
 
 .. code-block:: bash
   

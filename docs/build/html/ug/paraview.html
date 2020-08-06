@@ -181,8 +181,8 @@ Para poder utilizar siga as orientações abaixo.</p>
 <li><p>2 terminais conectados ao LoboC. Os terminais serão identificados como <code class="docutils literal notranslate"><span class="pre">t1$</span></code> e <code class="docutils literal notranslate"><span class="pre">t2$</span></code></p></li>
 <li><p>cliente paraview instalado na workstation de visualização (computador do usuário)</p></li>
 </ul>
-<div class="admonition note">
-<p class="admonition-title">Nota</p>
+<div class="admonition warning">
+<p class="admonition-title">Aviso</p>
 <p>A versão do Paraview instalado no cliente deve ser a <strong>mesma</strong> do servidor.</p>
 </div>
 </div>
@@ -213,8 +213,8 @@ qsub: job <span class="m">232826</span>.service1 ready
 user@r2i2n9:~&gt;
 </pre></div>
 </div>
-<div class="admonition warning">
-<p class="admonition-title">Aviso</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
 <p>O tempo máximo de um job iterativo (<em>walltime</em>) no LoboC é de 2 horas.</p>
 </div>
 <ol class="arabic simple" start="3">
@@ -224,7 +224,7 @@ user@r2i2n9:~&gt;
 </pre></div>
 </div>
 <ol class="arabic simple" start="4">
-<li><p><span class="guilabel">Terminal 1</span>: Volte ao <em>t1</em>. Carregue o module do Paraview no node e inicie o <code class="docutils literal notranslate"><span class="pre">pvserver</span></code></p></li>
+<li><p><span class="guilabel">Terminal 1</span>: Volte ao <strong>Terminal 1</strong> (<em>t1</em>). Carregue o module do Paraview no node e inicie o <code class="docutils literal notranslate"><span class="pre">pvserver</span></code></p></li>
 </ol>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>user@r2i2n9:~&gt; module load ParaView/5.8.0
 user@r2i2n9:~&gt; pvserver --server-port<span class="o">=</span><span class="m">11111</span>

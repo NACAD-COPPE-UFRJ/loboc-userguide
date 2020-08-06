@@ -91,17 +91,16 @@ O script abaixo pode ser usado como base para qualquer tipo de aplicação.
    * - 11
      - O programa será executado no mesmo diretório em que o comando ``qsub`` foi executado
    * - 13
-     - Execução do programa
+     - Execução do programa ``prog``
 
 .. note::
 
-   Caso seja de interesse pode-se incluir duas linhas com os parâmetros ``#PBS -M sua_conta@seu_dominio.com.br`` e ``#PBS -m ae``, logo após a linha *6*, caso queiram receber um e-mail com informações de quando o job terminar ou for abortado. Caso use esta opção, por favor, verifique se o seu e-mail foi preenchido **corretamente**.
+   Caso seja de interesse pode-se incluir duas linhas com os parâmetros ``#PBS -m ae`` e ``#PBS -M sua_conta@seu_dominio.com.br``, logo após a linha *6*, caso queiram receber um e-mail com informações de quando o job terminar ou for abortado. Caso use esta opção, por favor, verifique se o seu e-mail foi preenchido **corretamente**.
 
 OpenMP
 ------
 
 .. code-block:: bash
-   :linenos:
    :emphasize-lines: 2,13
 
    #!/bin/bash
@@ -128,7 +127,6 @@ MPI
 ---
 
 .. code-block:: bash
-   :linenos:
    :emphasize-lines: 2, 13
    
    #!/bin/bash
@@ -147,7 +145,7 @@ MPI
 
 .. note::
 
-   Repare nas linhas em destaque. A quantidade de processos MPI por nó de processamento pode ser definida pelo PBS incluindo o parâmetro ``:mpiprocs=24``. Desta maneira o parâmetro ``-np=48`` do ``mpirun`` pode ser omitido, isto é, (2 nodes x 24 procs = 48). Isto é uma grande vantagem pois facilita a manutenção do job caso haja alguma modificação na quantidade de processos MPI. Bastando para isso modificar apenas a primeira linha do job.
+   Repare nas linhas em destaque. A quantidade de processos MPI por nó de processamento pode ser definida pelo PBS incluindo o parâmetro ``:mpiprocs=24``. Desta maneira o parâmetro ``-np=48`` do ``mpirun`` pode ser omitido, isto é, ``2 nodes x 24 procs = 48``. Isto é uma grande vantagem pois facilita a manutenção do job caso haja alguma modificação na quantidade de processos MPI. Bastando para isso modificar apenas a primeira linha do job.
 
 .. note::
 
@@ -155,7 +153,7 @@ MPI
  
 .. hint:: 
 
-   Se o seu programa usufrui dos threads, os parâmetros ``mpiprocs`` e ``ompthreads`` podem ser modificados para ``:mpiprocs=48`` ou  ``:ompthreads=48`` ou **omitidos**, caso contrário mantenham eles como ``24``.
+   Se o seu programa usufrui dos threads, os parâmetros ``mpiprocs`` e ``ompthreads`` podem ser **omitidos** ou modificados para ``:mpiprocs=48`` ou  ``:ompthreads=48``, caso contrário mantenham eles como ``24`` que corresponde ao número de cores.
 
 Submissão de job
 ================
@@ -169,7 +167,7 @@ Usando como base um dos jobs scripts de exemplo, mostrados anteriormente no item
    user1@service1:~/test> qsub mpi-intel.job
    233180.service1
 
-Acompanhando o Status do job
+Acompanhando o status do job
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: bash
@@ -182,7 +180,7 @@ Acompanhando o Status do job
    233181.service1 user1    workq    mpi-intel     --    2  96    --  01:00 Q   --
 
 
-Neste exemplo, o status do job é ``Q``. Os status podem ser:
+Neste exemplo, o status do job é ``Q``. O status de um job pode ser:
 
 * ``R``: job sendo executado
 * ``Q``: está na fila esperando recurso para ser executado
@@ -193,7 +191,7 @@ Neste exemplo, o status do job é ``Q``. Os status podem ser:
 Submetendo um job interativo
 ----------------------------
 
-Para submeter um job interativo deve usar o comando ``qsub -I``. O *job scheduler* procurará um nó de computação disponível e fornecerá um shell de logon, se houver algum disponível.
+Para submeter um job interativo deve usar o comando ``qsub -I``. O *job scheduler* procurará um nó de computação disponível e fornecerá um shell de logon, se houver algum disponível. Neste exemplo, o node alocado foi o ``r2i2n9``.
 
 .. code-block:: bash
 
@@ -206,7 +204,7 @@ Para submeter um job interativo deve usar o comando ``qsub -I``. O *job schedule
   user1@r2i2n9:~>
 
 .. note::
-   Para executar aplicativos gráficos em uma sessão interativa, adicione no comando a opção ``-X``, que permite o encaminhamento da interface gráfica. Por exemplo, ``qsub -I -X``. Pode-se adicionar também as variáveis de ambiente do servidor incluindo a opção ``-V``, obtendo o seguinte comando ``qsub -I -X -V`` ou ``qsub -IXV``.
+   Para executar aplicativos gráficos em uma sessão interativa, adicione no comando a opção ``-X``, que permite o encaminhamento da interface gráfica. Por exemplo, ``qsub -I -X`` ou ``qsub -IX``. Pode-se adicionar também as variáveis de ambiente do servidor incluindo a opção ``-V``, obtendo o seguinte comando ``qsub -I -X -V`` ou ``qsub -IXV``.
 
 .. admonition:: Maiores informações
 

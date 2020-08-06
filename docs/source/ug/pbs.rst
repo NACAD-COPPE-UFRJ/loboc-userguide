@@ -68,10 +68,6 @@ O script abaixo pode ser usado como base para qualquer tipo de aplicação.
    
    ./prog
 
-.. note::
-
-   Caso seja de interesse pode-se adicionar os parâmetros ``#PBS -M sua_conta@seu_dominio.com.br``, e ``#PBS -m ae`` caso queiram receber um e-mail com informações de quando o job terminou ou foi abortado. Por favor, verifique se o seu e-mail foi preenchido **corretamente**.
-
 .. list-table:: Descrição detalhada do job
    :align: center
    :header-rows: 1
@@ -96,6 +92,10 @@ O script abaixo pode ser usado como base para qualquer tipo de aplicação.
      - O programa será executado no mesmo diretório em que o comando ``qsub`` foi executado
    * - 13
      - Execução do programa
+
+.. note::
+
+   Caso seja de interesse pode-se adicionar os parâmetros ``#PBS -M sua_conta@seu_dominio.com.br`` e ``#PBS -m ae``, como linhas *7* e *8*, caso queiram receber um e-mail com informações de quando o job terminou ou foi abortado. Caso use esta opção, por favor, verifique se o seu e-mail foi preenchido **corretamente**.
 
 OpenMP
 ------
@@ -155,7 +155,7 @@ MPI
  
 .. hint:: 
 
-   Se o seu programa usufrui dos threads os parâmetros ``mpiprocs`` e ``ompthreads`` podem ser modificados para ``:mpiprocs=48`` ou  ``:ompthreads=48``, caso contrário mantenham como ``24``.
+   Se o seu programa usufrui dos threads, os parâmetros ``mpiprocs`` e ``ompthreads`` podem ser modificados para ``:mpiprocs=48`` ou  ``:ompthreads=48`` ou **omitidos**, caso contrário mantenham como ``24``.
 
 Submissão de job
 ================

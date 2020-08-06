@@ -279,10 +279,6 @@ module load module1 <span class="o">[</span>module2<span class="o">]</span> <spa
 ./prog
 </pre></div>
 </td></tr></table></div>
-<div class="admonition note">
-<p class="admonition-title">Nota</p>
-<p>Caso seja de interesse pode-se adicionar os parâmetros <code class="docutils literal notranslate"><span class="pre">#PBS</span> <span class="pre">-M</span> <span class="pre">sua_conta&#64;seu_dominio.com.br</span></code>, e <code class="docutils literal notranslate"><span class="pre">#PBS</span> <span class="pre">-m</span> <span class="pre">ae</span></code> caso queiram receber um e-mail com informações de quando o job terminou ou foi abortado. Por favor, verifique se o seu e-mail foi preenchido <strong>corretamente</strong>.</p>
-</div>
 <table class="docutils align-center" id="id2">
 <caption><span class="caption-text">Descrição detalhada do job</span><a class="headerlink" href="#id2" title="Link Permanente para essa tabela">¶</a></caption>
 <colgroup>
@@ -324,6 +320,10 @@ module load module1 <span class="o">[</span>module2<span class="o">]</span> <spa
 </tr>
 </tbody>
 </table>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Caso seja de interesse pode-se adicionar os parâmetros <code class="docutils literal notranslate"><span class="pre">#PBS</span> <span class="pre">-M</span> <span class="pre">sua_conta&#64;seu_dominio.com.br</span></code> e <code class="docutils literal notranslate"><span class="pre">#PBS</span> <span class="pre">-m</span> <span class="pre">ae</span></code>, como linhas <em>7</em> e <em>8</em>, caso queiram receber um e-mail com informações de quando o job terminou ou foi abortado. Caso use esta opção, por favor, verifique se o seu e-mail foi preenchido <strong>corretamente</strong>.</p>
+</div>
 </div>
 <div class="section" id="openmp">
 <h3><a class="toc-backref" href="#id8"><span class="section-number">3.3.2. </span>OpenMP</a><a class="headerlink" href="#openmp" title="Link permanente para este título">¶</a></h3>
@@ -402,7 +402,7 @@ module load intel/2019.4
 </div>
 <div class="admonition hint">
 <p class="admonition-title">Dica</p>
-<p>Se o seu programa usufrui dos threads os parâmetros <code class="docutils literal notranslate"><span class="pre">mpiprocs</span></code> e <code class="docutils literal notranslate"><span class="pre">ompthreads</span></code> podem ser modificados para <code class="docutils literal notranslate"><span class="pre">:mpiprocs=48</span></code> ou  <code class="docutils literal notranslate"><span class="pre">:ompthreads=48</span></code>, caso contrário mantenham como <code class="docutils literal notranslate"><span class="pre">24</span></code>.</p>
+<p>Se o seu programa usufrui dos threads, os parâmetros <code class="docutils literal notranslate"><span class="pre">mpiprocs</span></code> e <code class="docutils literal notranslate"><span class="pre">ompthreads</span></code> podem ser modificados para <code class="docutils literal notranslate"><span class="pre">:mpiprocs=48</span></code> ou  <code class="docutils literal notranslate"><span class="pre">:ompthreads=48</span></code> ou <strong>omitidos</strong>, caso contrário mantenham como <code class="docutils literal notranslate"><span class="pre">24</span></code>.</p>
 </div>
 </div>
 </div>

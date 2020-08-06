@@ -98,7 +98,10 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#submissao-de-job">3.4. Submissão de job</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#submetendo-um-batch-job">3.4.1. Submetendo um batch job</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#submetendo-um-batch-job">3.4.1. Submetendo um batch job</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#acompanhando-o-status-do-job">3.4.1.1. Acompanhando o Status do job</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#submetendo-um-job-interativo">3.4.2. Submetendo um job interativo</a></li>
 </ul>
 </li>
@@ -180,8 +183,12 @@
 </li>
 <li><p><a class="reference internal" href="#submissao-de-job" id="id11">Submissão de job</a></p>
 <ul>
-<li><p><a class="reference internal" href="#submetendo-um-batch-job" id="id12">Submetendo um batch job</a></p></li>
-<li><p><a class="reference internal" href="#submetendo-um-job-interativo" id="id13">Submetendo um job interativo</a></p></li>
+<li><p><a class="reference internal" href="#submetendo-um-batch-job" id="id12">Submetendo um batch job</a></p>
+<ul>
+<li><p><a class="reference internal" href="#acompanhando-o-status-do-job" id="id13">Acompanhando o Status do job</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#submetendo-um-job-interativo" id="id14">Submetendo um job interativo</a></p></li>
 </ul>
 </li>
 </ul>
@@ -272,6 +279,10 @@ module load module1 <span class="o">[</span>module2<span class="o">]</span> <spa
 ./prog
 </pre></div>
 </td></tr></table></div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Caso seja de interesse pode-se adicionar os parâmetros <code class="docutils literal notranslate"><span class="pre">#PBS</span> <span class="pre">-M</span> <span class="pre">sua_conta&#64;seu_dominio.com.br</span></code>, e <code class="docutils literal notranslate"><span class="pre">#PBS</span> <span class="pre">-m</span> <span class="pre">ae</span></code> caso queiram receber um e-mail com informações de quando o job terminou ou foi abortado. Por favor, verifique se o seu e-mail foi preenchido <strong>corretamente</strong>.</p>
+</div>
 <table class="docutils align-center" id="id3">
 <caption><span class="caption-text">Descrição detalhada do job</span><a class="headerlink" href="#id3" title="Link Permanente para essa tabela">¶</a></caption>
 <colgroup>
@@ -402,8 +413,11 @@ module load intel/2019.4
 <p>Usando como base um dos jobs scripts de exemplo, mostrados anteriormente no item <a class="reference internal" href="#exemplos"><span class="std std-ref">Exemplos de scripts</span></a>.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>user1@service1:~/test&gt; qsub mpi-intel.job
 <span class="m">233180</span>.service1
-
-user1@service1:~/test&gt; qstat -u user1
+</pre></div>
+</div>
+<div class="section" id="acompanhando-o-status-do-job">
+<h4><a class="toc-backref" href="#id13"><span class="section-number">3.4.1.1. </span>Acompanhando o Status do job</a><a class="headerlink" href="#acompanhando-o-status-do-job" title="Link permanente para este título">¶</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>user1@service1:~/test&gt; qstat -u user1
 service1:
                                                             Req<span class="s1">&#39;d  Req&#39;</span>d   Elap
 Job ID          Username Queue    Jobname    SessID NDS TSK Memory Time  S Time
@@ -411,9 +425,18 @@ Job ID          Username Queue    Jobname    SessID NDS TSK Memory Time  S Time
 <span class="m">233181</span>.service1 user1    workq    mpi-intel     --    <span class="m">2</span>  <span class="m">96</span>    --  <span class="m">01</span>:00 Q   --
 </pre></div>
 </div>
+<p>Neste exemplo, o status do job é <code class="docutils literal notranslate"><span class="pre">Q</span></code>. Os status podem ser:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">R</span></code>: job sendo executado</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Q</span></code>: está na fila esperando recurso para ser executado</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">H</span></code>: job em hold</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">S</span></code>: job suspenso</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">E</span></code>: job terminando</p></li>
+</ul>
+</div>
 </div>
 <div class="section" id="submetendo-um-job-interativo">
-<h3><a class="toc-backref" href="#id13"><span class="section-number">3.4.2. </span>Submetendo um job interativo</a><a class="headerlink" href="#submetendo-um-job-interativo" title="Link permanente para este título">¶</a></h3>
+<h3><a class="toc-backref" href="#id14"><span class="section-number">3.4.2. </span>Submetendo um job interativo</a><a class="headerlink" href="#submetendo-um-job-interativo" title="Link permanente para este título">¶</a></h3>
 <p>Para submeter um job interativo deve usar o comando <code class="docutils literal notranslate"><span class="pre">qsub</span> <span class="pre">-I</span></code>. O <em>job scheduler</em> procurará um nó de computação disponível e fornecerá um shell de logon, se houver algum disponível.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>user1@service1:~&gt; qsub -I
 qsub: waiting <span class="k">for</span> job <span class="m">233174</span>.service1 to start

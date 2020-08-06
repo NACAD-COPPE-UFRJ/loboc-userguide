@@ -68,6 +68,10 @@ O script abaixo pode ser usado como base para qualquer tipo de aplicação.
    
    ./prog
 
+.. note::
+
+   Caso seja de interesse pode-se adicionar os parâmetros ``#PBS -M sua_conta@seu_dominio.com.br``, e ``#PBS -m ae`` caso queiram receber um e-mail com informações de quando o job terminou ou foi abortado. Por favor, verifique se o seu e-mail foi preenchido **corretamente**.
+
 .. list-table:: Descrição detalhada do job
    :align: center
    :header-rows: 1
@@ -165,6 +169,11 @@ Usando como base um dos jobs scripts de exemplo, mostrados anteriormente no item
    user1@service1:~/test> qsub mpi-intel.job
    233180.service1
 
+Acompanhando o Status do job
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: bash
+
    user1@service1:~/test> qstat -u user1
    service1:
                                                                Req'd  Req'd   Elap
@@ -172,6 +181,14 @@ Usando como base um dos jobs scripts de exemplo, mostrados anteriormente no item
    --------------- -------- -------- ---------- ------ --- --- ------ ----- - -----
    233181.service1 user1    workq    mpi-intel     --    2  96    --  01:00 Q   --
 
+
+Neste exemplo, o status do job é ``Q``. Os status podem ser:
+
+* ``R``: job sendo executado
+* ``Q``: está na fila esperando recurso para ser executado
+* ``H``: job em hold
+* ``S``: job suspenso
+* ``E``: job terminando
 
 Submetendo um job interativo
 ----------------------------

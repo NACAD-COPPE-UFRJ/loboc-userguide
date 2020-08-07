@@ -90,7 +90,10 @@
 <li class="toctree-l1"><a class="reference internal" href="modules.html">2. Module Environment</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">3. PBSPro</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#introducao">3.1. Introdução</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#pbs-comandos">3.2. PBS Comandos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pbs-comandos">3.2. PBS Comandos</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#environment-variables">3.2.1. Environment variables</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#exemplos-de-scripts">3.3. Exemplos de scripts</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#script-basico">3.3.1. Script Básico</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#openmp">3.3.2. OpenMP</a></li>
@@ -103,6 +106,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#submetendo-um-job-interativo">3.4.2. Submetendo um job interativo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dependencia-entre-jobs">3.4.3. Dependência entre jobs</a></li>
 </ul>
 </li>
 </ul>
@@ -166,29 +170,34 @@
            <div itemprop="articleBody">
             
   <div class="section" id="pbspro">
-<h1><a class="toc-backref" href="#id3"><span class="section-number">3. </span>PBSPro</a><a class="headerlink" href="#pbspro" title="Link permanente para este título">¶</a></h1>
+<h1><a class="toc-backref" href="#id4"><span class="section-number">3. </span>PBSPro</a><a class="headerlink" href="#pbspro" title="Link permanente para este título">¶</a></h1>
 <div class="contents topic" id="conteudo">
 <p class="topic-title">Conteúdo</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#pbspro" id="id3">PBSPro</a></p>
+<li><p><a class="reference internal" href="#pbspro" id="id4">PBSPro</a></p>
 <ul>
-<li><p><a class="reference internal" href="#introducao" id="id4">Introdução</a></p></li>
-<li><p><a class="reference internal" href="#pbs-comandos" id="id5">PBS Comandos</a></p></li>
-<li><p><a class="reference internal" href="#exemplos-de-scripts" id="id6">Exemplos de scripts</a></p>
+<li><p><a class="reference internal" href="#introducao" id="id5">Introdução</a></p></li>
+<li><p><a class="reference internal" href="#pbs-comandos" id="id6">PBS Comandos</a></p>
 <ul>
-<li><p><a class="reference internal" href="#script-basico" id="id7">Script Básico</a></p></li>
-<li><p><a class="reference internal" href="#openmp" id="id8">OpenMP</a></p></li>
-<li><p><a class="reference internal" href="#mpi" id="id9">MPI</a></p></li>
+<li><p><a class="reference internal" href="#environment-variables" id="id7">Environment variables</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#submissao-de-job" id="id10">Submissão de job</a></p>
+<li><p><a class="reference internal" href="#exemplos-de-scripts" id="id8">Exemplos de scripts</a></p>
 <ul>
-<li><p><a class="reference internal" href="#submetendo-um-batch-job" id="id11">Submetendo um batch job</a></p>
-<ul>
-<li><p><a class="reference internal" href="#acompanhando-o-status-do-job" id="id12">Acompanhando o status do job</a></p></li>
+<li><p><a class="reference internal" href="#script-basico" id="id9">Script Básico</a></p></li>
+<li><p><a class="reference internal" href="#openmp" id="id10">OpenMP</a></p></li>
+<li><p><a class="reference internal" href="#mpi" id="id11">MPI</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#submetendo-um-job-interativo" id="id13">Submetendo um job interativo</a></p></li>
+<li><p><a class="reference internal" href="#submissao-de-job" id="id12">Submissão de job</a></p>
+<ul>
+<li><p><a class="reference internal" href="#submetendo-um-batch-job" id="id13">Submetendo um batch job</a></p>
+<ul>
+<li><p><a class="reference internal" href="#acompanhando-o-status-do-job" id="id14">Acompanhando o status do job</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#submetendo-um-job-interativo" id="id15">Submetendo um job interativo</a></p></li>
+<li><p><a class="reference internal" href="#dependencia-entre-jobs" id="id16">Dependência entre jobs</a></p></li>
 </ul>
 </li>
 </ul>
@@ -196,11 +205,11 @@
 </ul>
 </div>
 <div class="section" id="introducao">
-<h2><a class="toc-backref" href="#id4"><span class="section-number">3.1. </span>Introdução</a><a class="headerlink" href="#introducao" title="Link permanente para este título">¶</a></h2>
+<h2><a class="toc-backref" href="#id5"><span class="section-number">3.1. </span>Introdução</a><a class="headerlink" href="#introducao" title="Link permanente para este título">¶</a></h2>
 <p>O <a class="reference external" href="https://www.altair.com/pbs-professional/">PBS Pro</a> é um <em>job scheduler open-source</em> baseado no original PBS code desenvolvido pela NASA. Agora a Altair Engineering possui e mantém o PBS Pro Scheduler.</p>
 </div>
 <div class="section" id="pbs-comandos">
-<h2><a class="toc-backref" href="#id5"><span class="section-number">3.2. </span>PBS Comandos</a><a class="headerlink" href="#pbs-comandos" title="Link permanente para este título">¶</a></h2>
+<h2><a class="toc-backref" href="#id6"><span class="section-number">3.2. </span>PBS Comandos</a><a class="headerlink" href="#pbs-comandos" title="Link permanente para este título">¶</a></h2>
 <table class="docutils align-center" id="id1">
 <caption><span class="caption-text">Comandos básicos</span><a class="headerlink" href="#id1" title="Link Permanente para essa tabela">¶</a></caption>
 <colgroup>
@@ -245,12 +254,55 @@
 </tr>
 </tbody>
 </table>
+<div class="section" id="environment-variables">
+<h3><a class="toc-backref" href="#id7"><span class="section-number">3.2.1. </span>Environment variables</a><a class="headerlink" href="#environment-variables" title="Link permanente para este título">¶</a></h3>
+<p>O job scheduler cria automaticamente variáveis de ambiente que estão disponíveis para serem utilizadas nos scripts de trabalho quando estão sendo executados em nós de computação de cluster, junto com variáveis Linux padrão. As variáveis são:</p>
+<table class="docutils align-center" id="id2">
+<caption><span class="caption-text">Environment variables</span><a class="headerlink" href="#id2" title="Link Permanente para essa tabela">¶</a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">PBS_JOBID</span></code></p></td>
+<td><p>Identificador do job. Fornecido pelo PBS quando um job é submetido.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">PBS_JOBNAME</span></code></p></td>
+<td><p>Nome do job fornecido pelo usuário. Criado na execução.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">PBS_NODEFILE</span></code></p></td>
+<td><p>Nome do arquivo contendo uma lista dos vnodes atribuídos ao trabalho.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">PBS_O_PATH</span></code></p></td>
+<td><p>Valor no PATH do ambiente de submissão</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">PBS_O_WORKDIR</span></code></p></td>
+<td><p>PATH absoluto para o diretório onde o comando <code class="docutils literal notranslate"><span class="pre">qsub</span></code> é executado.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">TMPDIR</span></code></p></td>
+<td><p>Diretório temporário do job.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">NCPUS</span></code></p></td>
+<td><p>Número de threads padrão do vnode.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">OMP_NUM_THREADS</span></code></p></td>
+<td><p>Número de threads padrão do vnode.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">PBS_ARRAY_ID</span></code></p></td>
+<td><p>Identificador do job array.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">PBS_ARRAY_INDEX</span></code></p></td>
+<td><p>Número do índice de subtrabalho na matriz de trabalhos.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 <div class="section" id="exemplos-de-scripts">
-<span id="exemplos"></span><h2><a class="toc-backref" href="#id6"><span class="section-number">3.3. </span>Exemplos de scripts</a><a class="headerlink" href="#exemplos-de-scripts" title="Link permanente para este título">¶</a></h2>
+<span id="exemplos"></span><h2><a class="toc-backref" href="#id8"><span class="section-number">3.3. </span>Exemplos de scripts</a><a class="headerlink" href="#exemplos-de-scripts" title="Link permanente para este título">¶</a></h2>
 <p>Os exemplos dos scripts para o PBS estão disponiveis no servidor de login no diretório <code class="docutils literal notranslate"><span class="pre">/sw/share/doc</span></code>. Conforme descrito em <a class="reference internal" href="introduction.html"><span class="doc">Introdução</span></a>, cada nó de processamento possui 24 cores/48 threads.</p>
 <div class="section" id="script-basico">
-<h3><a class="toc-backref" href="#id7"><span class="section-number">3.3.1. </span>Script Básico</a><a class="headerlink" href="#script-basico" title="Link permanente para este título">¶</a></h3>
+<h3><a class="toc-backref" href="#id9"><span class="section-number">3.3.1. </span>Script Básico</a><a class="headerlink" href="#script-basico" title="Link permanente para este título">¶</a></h3>
 <p>O script abaixo pode ser usado como base para qualquer tipo de aplicação.</p>
 <div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
@@ -279,8 +331,8 @@ module load module1 <span class="o">[</span>module2<span class="o">]</span> <spa
 ./prog
 </pre></div>
 </td></tr></table></div>
-<table class="docutils align-center" id="id2">
-<caption><span class="caption-text">Descrição detalhada do job</span><a class="headerlink" href="#id2" title="Link Permanente para essa tabela">¶</a></caption>
+<table class="docutils align-center" id="id3">
+<caption><span class="caption-text">Descrição detalhada do job</span><a class="headerlink" href="#id3" title="Link Permanente para essa tabela">¶</a></caption>
 <colgroup>
 <col style="width: 50%" />
 <col style="width: 50%" />
@@ -292,7 +344,7 @@ module load module1 <span class="o">[</span>module2<span class="o">]</span> <spa
 </thead>
 <tbody>
 <tr class="row-even"><td><p>1</p></td>
-<td><p>SHELL utilizado para os comandos do job</p></td>
+<td><p>Shell utilizado para os comandos do job</p></td>
 </tr>
 <tr class="row-odd"><td><p>2</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">select=1</span></code> aloca 1 node. <code class="docutils literal notranslate"><span class="pre">ncpus=48</span></code> aloca todos os 48 threads disponíveis no node</p></td>
@@ -313,7 +365,7 @@ module load module1 <span class="o">[</span>module2<span class="o">]</span> <spa
 <td><p>Módulos necessários para a execução do programa</p></td>
 </tr>
 <tr class="row-odd"><td><p>11</p></td>
-<td><p>O programa será executado no mesmo diretório em que o comando <code class="docutils literal notranslate"><span class="pre">qsub</span></code> foi executado</p></td>
+<td><p>Muda para o mesmo diretório em que o comando <code class="docutils literal notranslate"><span class="pre">qsub</span></code> foi executado</p></td>
 </tr>
 <tr class="row-even"><td><p>13</p></td>
 <td><p>Execução do programa <code class="docutils literal notranslate"><span class="pre">prog</span></code></p></td>
@@ -326,7 +378,7 @@ module load module1 <span class="o">[</span>module2<span class="o">]</span> <spa
 </div>
 </div>
 <div class="section" id="openmp">
-<h3><a class="toc-backref" href="#id8"><span class="section-number">3.3.2. </span>OpenMP</a><a class="headerlink" href="#openmp" title="Link permanente para este título">¶</a></h3>
+<h3><a class="toc-backref" href="#id10"><span class="section-number">3.3.2. </span>OpenMP</a><a class="headerlink" href="#openmp" title="Link permanente para este título">¶</a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
 <span class="hll"><span class="c1">#PBS -l select=1:ncpus=48:ompthreads=24</span>
 </span><span class="c1">#PBS -l walltime=01:00:00</span>
@@ -350,7 +402,7 @@ module load intel/2019.4
 </div>
 </div>
 <div class="section" id="mpi">
-<h3><a class="toc-backref" href="#id9"><span class="section-number">3.3.3. </span>MPI</a><a class="headerlink" href="#mpi" title="Link permanente para este título">¶</a></h3>
+<h3><a class="toc-backref" href="#id11"><span class="section-number">3.3.3. </span>MPI</a><a class="headerlink" href="#mpi" title="Link permanente para este título">¶</a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
 <span class="hll"><span class="c1">#PBS -l select=2:ncpus=48:mpiprocs=24</span>
 </span><span class="c1">#PBS -l walltime=01:00:00</span>
@@ -381,16 +433,16 @@ module load intel/2019.4
 </div>
 </div>
 <div class="section" id="submissao-de-job">
-<h2><a class="toc-backref" href="#id10"><span class="section-number">3.4. </span>Submissão de job</a><a class="headerlink" href="#submissao-de-job" title="Link permanente para este título">¶</a></h2>
+<h2><a class="toc-backref" href="#id12"><span class="section-number">3.4. </span>Submissão de job</a><a class="headerlink" href="#submissao-de-job" title="Link permanente para este título">¶</a></h2>
 <div class="section" id="submetendo-um-batch-job">
-<h3><a class="toc-backref" href="#id11"><span class="section-number">3.4.1. </span>Submetendo um batch job</a><a class="headerlink" href="#submetendo-um-batch-job" title="Link permanente para este título">¶</a></h3>
+<h3><a class="toc-backref" href="#id13"><span class="section-number">3.4.1. </span>Submetendo um batch job</a><a class="headerlink" href="#submetendo-um-batch-job" title="Link permanente para este título">¶</a></h3>
 <p>Usando como base um dos jobs scripts de exemplo, mostrados anteriormente no item <a class="reference internal" href="#exemplos"><span class="std std-ref">Exemplos de scripts</span></a>.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>user1@service1:~/test&gt; qsub mpi-intel.job
 <span class="m">233180</span>.service1
 </pre></div>
 </div>
 <div class="section" id="acompanhando-o-status-do-job">
-<h4><a class="toc-backref" href="#id12"><span class="section-number">3.4.1.1. </span>Acompanhando o status do job</a><a class="headerlink" href="#acompanhando-o-status-do-job" title="Link permanente para este título">¶</a></h4>
+<h4><a class="toc-backref" href="#id14"><span class="section-number">3.4.1.1. </span>Acompanhando o status do job</a><a class="headerlink" href="#acompanhando-o-status-do-job" title="Link permanente para este título">¶</a></h4>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>user1@service1:~/test&gt; qstat -u user1
 service1:
                                                             Req<span class="s1">&#39;d  Req&#39;</span>d   Elap
@@ -410,7 +462,7 @@ Job ID          Username Queue    Jobname    SessID NDS TSK Memory Time  S Time
 </div>
 </div>
 <div class="section" id="submetendo-um-job-interativo">
-<h3><a class="toc-backref" href="#id13"><span class="section-number">3.4.2. </span>Submetendo um job interativo</a><a class="headerlink" href="#submetendo-um-job-interativo" title="Link permanente para este título">¶</a></h3>
+<h3><a class="toc-backref" href="#id15"><span class="section-number">3.4.2. </span>Submetendo um job interativo</a><a class="headerlink" href="#submetendo-um-job-interativo" title="Link permanente para este título">¶</a></h3>
 <p>Para submeter um job interativo deve usar o comando <code class="docutils literal notranslate"><span class="pre">qsub</span> <span class="pre">-I</span></code>. O <em>job scheduler</em> procurará um nó de computação disponível e fornecerá um shell de logon, se houver algum disponível. Neste exemplo, o node alocado foi o <code class="docutils literal notranslate"><span class="pre">r2i2n9</span></code>.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>user1@service1:~&gt; qsub -I
 qsub: waiting <span class="k">for</span> job <span class="m">233174</span>.service1 to start
@@ -425,9 +477,35 @@ user1@r2i2n9:~&gt;
 <p class="admonition-title">Nota</p>
 <p>Para executar aplicativos gráficos em uma sessão interativa, adicione no comando a opção <code class="docutils literal notranslate"><span class="pre">-X</span></code>, que permite o encaminhamento da interface gráfica. Por exemplo, <code class="docutils literal notranslate"><span class="pre">qsub</span> <span class="pre">-I</span> <span class="pre">-X</span></code> ou <code class="docutils literal notranslate"><span class="pre">qsub</span> <span class="pre">-IX</span></code>. Pode-se adicionar também as variáveis de ambiente do servidor incluindo a opção <code class="docutils literal notranslate"><span class="pre">-V</span></code>, obtendo o seguinte comando <code class="docutils literal notranslate"><span class="pre">qsub</span> <span class="pre">-I</span> <span class="pre">-X</span> <span class="pre">-V</span></code> ou <code class="docutils literal notranslate"><span class="pre">qsub</span> <span class="pre">-IXV</span></code>.</p>
 </div>
+</div>
+<div class="section" id="dependencia-entre-jobs">
+<h3><a class="toc-backref" href="#id16"><span class="section-number">3.4.3. </span>Dependência entre jobs</a><a class="headerlink" href="#dependencia-entre-jobs" title="Link permanente para este título">¶</a></h3>
+<p>O PBS permite que você especifique dependências entre dois ou mais jobs. As dependências são úteis para uma variedade de tarefas, como:</p>
+<ol class="arabic simple">
+<li><p>Especificar a ordem em que os jobs devem ser executados</p></li>
+<li><p>Solicitar a execução de um trabalho apenas se ocorrer um erro em outro trabalho</p></li>
+<li><p>Reter trabalhos até que um determinado trabalho inicie ou conclua a execução</p></li>
+</ol>
+<p>A opção <code class="docutils literal notranslate"><span class="pre">-W</span> <span class="pre">depend=dependency_list</span></code> do <code class="docutils literal notranslate"><span class="pre">qsub</span></code> define a dependência entre vários trabalhos. As opções mais comuns são <code class="docutils literal notranslate"><span class="pre">after:&lt;jobid&gt;</span></code> e <code class="docutils literal notranslate"><span class="pre">afterok:&lt;jobid&gt;</span></code>, que corresponde executar ao término do <em>&lt;jobid&gt;</em> e executar <strong>apenas</strong> se o <em>&lt;jobid&gt;</em> terminar corretamente <code class="docutils literal notranslate"><span class="pre">EXIT</span> <span class="pre">STATUS</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>user1@service1:~/test&gt; qsub mpi-intel.job
+<span class="m">233545</span>.service1
+
+user1@service1:~/test&gt; qsub -W <span class="nv">depend</span><span class="o">=</span>afterok:233545 report.job
+<span class="m">233546</span>.service1
+user1@service1:~/test&gt; qstat -u user1
+
+service1:
+                                                            Req<span class="s1">&#39;d  Req&#39;</span>d   Elap
+Job ID          Username Queue    Jobname    SessID NDS TSK Memory Time  S Time
+--------------- -------- -------- ---------- ------ --- --- ------ ----- - -----
+<span class="m">233545</span>.service1 user1    workq    mpi-intel   <span class="m">12345</span>   <span class="m">2</span>  <span class="m">96</span>    --  <span class="m">01</span>:00 R <span class="m">00</span>:01
+<span class="m">233546</span>.service1 user1    workq    <span class="nb">test</span>          --    <span class="m">1</span>  <span class="m">48</span>    --  <span class="m">01</span>:00 H   --
+</pre></div>
+</div>
+<p>Observe que o job ficará em <code class="docutils literal notranslate"><span class="pre">HOLD</span></code> até o job anterior terminar.</p>
 <div class="admonition-maiores-informacoes admonition">
 <p class="admonition-title">Maiores informações</p>
-<p>Através do comando <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">pbs</span></code> ou do <a class="reference external" href="https://www.altair.com/pbs-works-documentation/">PBS Professional User’s Guide</a>.</p>
+<p>Através do comando <code class="docutils literal notranslate"><span class="pre">man</span></code> ou do <a class="reference external" href="https://www.altair.com/pbs-works-documentation/">PBS Professional User’s Guide</a>.</p>
 </div>
 </div>
 </div>

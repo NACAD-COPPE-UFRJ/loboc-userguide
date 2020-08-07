@@ -40,6 +40,36 @@ PBS Comandos
      - Imprime informações de log do job
      - ``tracejob 201012``
 
+Environment variables
+---------------------
+
+O job scheduler cria automaticamente variáveis de ambiente que estão disponíveis para serem utilizadas nos scripts de trabalho quando estão sendo executados em nós de computação de cluster, junto com variáveis Linux padrão. As variáveis são:
+
+.. list-table:: Environment variables
+   :align: center
+   
+   * - ``PBS_JOBID``
+     - Identificador do job. Fornecido pelo PBS quando um job é submetido.
+   * - ``PBS_JOBNAME``
+     - Nome do job fornecido pelo usuário. Criado na execução.
+   * - ``PBS_NODEFILE``
+     - Nome do arquivo contendo uma lista dos vnodes atribuídos ao trabalho.
+   * - ``PBS_O_PATH``
+     - Valor no PATH do ambiente de submissão
+   * - ``PBS_O_WORKDIR``
+     - PATH absoluto para o diretório onde o comando ``qsub`` é executado. 
+   * - ``TMPDIR``
+     - Diretório temporário do job.
+   * - ``NCPUS``
+     - Número de threads padrão do vnode.
+   * - ``OMP_NUM_THREADS``
+     - Número de threads padrão do vnode.
+   * - ``PBS_ARRAY_ID``
+     - Identificador do job array.
+   * - ``PBS_ARRAY_INDEX``
+     - Número do índice de subtrabalho na matriz de trabalhos.
+
+
 .. _exemplos:
 
 Exemplos de scripts
@@ -75,7 +105,7 @@ O script abaixo pode ser usado como base para qualquer tipo de aplicação.
    * - Linha
      - Descrição
    * - 1
-     - SHELL utilizado para os comandos do job
+     - Shell utilizado para os comandos do job
    * - 2
      - ``select=1`` aloca 1 node. ``ncpus=48`` aloca todos os 48 threads disponíveis no node
    * - 3
@@ -89,7 +119,7 @@ O script abaixo pode ser usado como base para qualquer tipo de aplicação.
    * - 9
      - Módulos necessários para a execução do programa
    * - 11
-     - O programa será executado no mesmo diretório em que o comando ``qsub`` foi executado
+     - Muda para o mesmo diretório em que o comando ``qsub`` foi executado
    * - 13
      - Execução do programa ``prog``
 
@@ -206,7 +236,37 @@ Para submeter um job interativo deve usar o comando ``qsub -I``. O *job schedule
 .. note::
    Para executar aplicativos gráficos em uma sessão interativa, adicione no comando a opção ``-X``, que permite o encaminhamento da interface gráfica. Por exemplo, ``qsub -I -X`` ou ``qsub -IX``. Pode-se adicionar também as variáveis de ambiente do servidor incluindo a opção ``-V``, obtendo o seguinte comando ``qsub -I -X -V`` ou ``qsub -IXV``.
 
+Dependência entre jobs
+----------------------
+
+O PBS permite que você especifique dependências entre dois ou mais jobs. As dependências são úteis para uma variedade de tarefas, como:
+
+#. Especificar a ordem em que os jobs devem ser executados
+#. Solicitar a execução de um trabalho apenas se ocorrer um erro em outro trabalho
+#. Reter trabalhos até que um determinado trabalho inicie ou conclua a execução
+
+A opção ``-W depend=dependency_list`` do ``qsub`` define a dependência entre vários trabalhos. As opções mais comuns são ``after:<jobid>`` e ``afterok:<jobid>``, que corresponde executar ao término do *<jobid>* e executar **apenas** se o *<jobid>* terminar corretamente ``EXIT STATUS``.
+
+.. code-block:: bash
+
+  user1@service1:~/test> qsub mpi-intel.job
+  233545.service1
+  
+  user1@service1:~/test> qsub -W depend=afterok:233545 report.job
+  233546.service1
+  user1@service1:~/test> qstat -u user1
+
+  service1:
+                                                              Req'd  Req'd   Elap
+  Job ID          Username Queue    Jobname    SessID NDS TSK Memory Time  S Time
+  --------------- -------- -------- ---------- ------ --- --- ------ ----- - -----
+  233545.service1 user1    workq    mpi-intel   12345   2  96    --  01:00 R 00:01
+  233546.service1 user1    workq    test          --    1  48    --  01:00 H   --
+
+Observe que o job ficará em ``HOLD`` até o job anterior terminar.
+
+
 .. admonition:: Maiores informações
 
-   Através do comando ``man pbs`` ou do `PBS Professional User's Guide <https://www.altair.com/pbs-works-documentation/>`_.
+   Através do comando ``man`` ou do `PBS Professional User's Guide <https://www.altair.com/pbs-works-documentation/>`_.
 

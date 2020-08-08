@@ -57,7 +57,7 @@ O job scheduler cria automaticamente variáveis de ambiente que estão disponív
    * - ``PBS_O_PATH``
      - Valor no PATH do ambiente de submissão
    * - ``PBS_O_WORKDIR``
-     - PATH absoluto para o diretório onde o comando ``qsub`` é executado. 
+     - PATH absoluto para o diretório onde o comando ``qsub`` foi executado. 
    * - ``TMPDIR``
      - Diretório temporário do job.
    * - ``NCPUS``
@@ -149,9 +149,7 @@ OpenMP
    # run
    ./prog
 
-.. note::
-
-   Repare nas linhas em destaque. A quantidade de threads de um job pode ser definida pelo PBS incluindo o parâmetro ``:ompthreads=24`` ou descomentando a linha do comando ``export OMP_NUM_THREADS=24``.
+Repare nas linhas em destaque. A quantidade de threads de um job pode ser definida pelo PBS incluindo o parâmetro ``:ompthreads=24`` ou descomentando a linha do comando ``export OMP_NUM_THREADS=24``.
 
 MPI
 ---
@@ -173,9 +171,7 @@ MPI
    # run
    mpirun ./prog
 
-.. note::
-
-   Repare nas linhas em destaque. A quantidade de processos MPI por nó de processamento pode ser definida pelo PBS incluindo o parâmetro ``:mpiprocs=24``. Desta maneira o parâmetro ``-np=48`` do ``mpirun`` pode ser omitido, isto é, ``2 nodes x 24 procs = 48``. Isto é uma grande vantagem pois facilita a manutenção do job caso haja alguma modificação na quantidade de processos MPI. Bastando para isso modificar apenas a primeira linha do job.
+Repare nas linhas em destaque. A quantidade de processos MPI por nó de processamento pode ser definida pelo PBS incluindo o parâmetro ``:mpiprocs=24``. Desta maneira o parâmetro ``-np=48`` do ``mpirun`` pode ser omitido, isto é, ``2 nodes x 24 procs = 48``. Isto é uma grande vantagem pois facilita a manutenção do job caso haja alguma modificação na quantidade de processos MPI. Bastando para isso modificar apenas a primeira linha do job.
 
 .. note::
 
@@ -183,7 +179,7 @@ MPI
  
 .. hint:: 
 
-   Se o seu programa usufrui dos threads, os parâmetros ``mpiprocs`` e ``ompthreads`` podem ser **omitidos** ou modificados para ``:mpiprocs=48`` ou  ``:ompthreads=48``, caso contrário mantenham eles como ``24`` que corresponde ao número de cores.
+   Se o seu programa usufrui das threads, os parâmetros ``mpiprocs`` e ``ompthreads`` podem ser **omitidos** ou modificados para ``:mpiprocs=48`` ou  ``:ompthreads=48``, caso contrário mantenham eles como ``24`` que corresponde ao número de cores.
 
 Submissão de job
 ================
@@ -245,7 +241,7 @@ O PBS permite que você especifique dependências entre dois ou mais jobs. As de
 #. Solicitar a execução de um trabalho apenas se ocorrer um erro em outro trabalho
 #. Reter trabalhos até que um determinado trabalho inicie ou conclua a execução
 
-A opção ``-W depend=dependency_list`` do ``qsub`` define a dependência entre vários trabalhos. As opções mais comuns são ``after:<jobid>`` e ``afterok:<jobid>``, que corresponde executar ao término do *<jobid>* e executar **apenas** se o *<jobid>* terminar corretamente ``EXIT STATUS``.
+A opção ``-W depend=dependency_list`` do ``qsub`` define a dependência entre vários trabalhos. As opções mais comuns são ``after:<jobid>`` e ``afterok:<jobid>``, que correspondem respectivamente executar ao término do *<jobid>* e executar **apenas** se o *<jobid>* terminar com ``EXIT STATUS=0``.
 
 .. code-block:: bash
 

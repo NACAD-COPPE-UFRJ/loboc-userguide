@@ -90,7 +90,11 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">2. Module Environment</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#introducao">2.1. Introdução</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#utilizacao-do-module">2.2. Utilização do Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#exemplos-de-uso-do-module">2.3. Exemplos de Uso do Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exemplos-de-uso-do-module">2.3. Exemplos de Uso do Module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#obtendo-informacoes-sobre-os-modulos">2.3.1. Obtendo informações sobre os módulos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#obtendo-informacoes-dos-modules-para-compilacao">2.3.2. Obtendo informações dos modules para compilação</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="pbs.html">3. PBSPro</a></li>
@@ -161,7 +165,12 @@
 <ul>
 <li><p><a class="reference internal" href="#introducao" id="id2">Introdução</a></p></li>
 <li><p><a class="reference internal" href="#utilizacao-do-module" id="id3">Utilização do Module</a></p></li>
-<li><p><a class="reference internal" href="#exemplos-de-uso-do-module" id="id4">Exemplos de Uso do Module</a></p></li>
+<li><p><a class="reference internal" href="#exemplos-de-uso-do-module" id="id4">Exemplos de Uso do Module</a></p>
+<ul>
+<li><p><a class="reference internal" href="#obtendo-informacoes-sobre-os-modulos" id="id5">Obtendo informações sobre os módulos</a></p></li>
+<li><p><a class="reference internal" href="#obtendo-informacoes-dos-modules-para-compilacao" id="id6">Obtendo informações dos modules para compilação</a></p></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -249,7 +258,8 @@ intel/2016.3.210     intel/2016.4.072<span class="o">(</span>default<span class=
 <p class="admonition-title">Aviso</p>
 <p>Os modules (incluindo as versões) utilizados para compilar <strong>devem ser os mesmos</strong> a serem incluidos no script de submissão do job.</p>
 </div>
-<p>Obtendo informações sobre os módulos.</p>
+<div class="section" id="obtendo-informacoes-sobre-os-modulos">
+<h3><a class="toc-backref" href="#id5"><span class="section-number">2.3.1. </span>Obtendo informações sobre os módulos</a><a class="headerlink" href="#obtendo-informacoes-sobre-os-modulos" title="Link permanente para este título">¶</a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>user@service1:~&gt; module <span class="nb">help</span> intel
 
 ----------- Module Specific Help <span class="k">for</span> <span class="s1">&#39;intel/2016.4.072&#39;</span> -----------
@@ -289,6 +299,39 @@ user@service1:~&gt; module unload intel
 user@service1:~&gt; module list
 No Modulefiles Currently Loaded.
 </pre></div>
+</div>
+</div>
+<div class="section" id="obtendo-informacoes-dos-modules-para-compilacao">
+<h3><a class="toc-backref" href="#id6"><span class="section-number">2.3.2. </span>Obtendo informações dos modules para compilação</a><a class="headerlink" href="#obtendo-informacoes-dos-modules-para-compilacao" title="Link permanente para este título">¶</a></h3>
+<p>Suponha que necessite do module <code class="docutils literal notranslate"><span class="pre">netcdf-parallel/4.7.2</span></code> para compilar o seu programa. Primeiro consulte qual compilador foi usado para compilar a biblioteca em questão.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>user1@service1:~&gt; module <span class="nb">help</span> netcdf-intel/4.5.0
+
+----------- Module Specific Help <span class="k">for</span> <span class="s1">&#39;netcdf-intel/4.5.0&#39;</span> ---------
+
+Sets up the paths you need to use NetCDF.
+NetCDF-C      : <span class="m">4</span>.5.0
+NetCDF-CXX    : <span class="m">4</span>.3.0
+NetCDF-Fortran: <span class="m">4</span>.4.4
+<span class="hll">Compiled with Intel <span class="m">2017</span>.4.196
+</span></pre></div>
+</div>
+<p>A linha em detaque mostra que a versão usada foi o <code class="docutils literal notranslate"><span class="pre">Intel</span> <span class="pre">2017.4.196</span></code>. Recomenda-se então o uso da mesma versão do compilador ou da mesma familia <code class="docutils literal notranslate"><span class="pre">Intel</span> <span class="pre">2017.x</span></code>, isto é não deve se deve usar o compilador <code class="docutils literal notranslate"><span class="pre">Intel</span> <span class="pre">2019.x</span></code>. O comando abaixo deve ser utilizado para compilar e incluido no job para a sua execução.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>module load intel/2017.4.196
+</pre></div>
+</div>
+<p>Ou da mesma familia, por exemplo.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>module load intel/2017.8
+</pre></div>
+</div>
+<p>Ao carregar um module todas as dependências, <strong>excluindo</strong> o compilador são carregadas.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>user1@service1:~&gt; module list
+No Modulefiles Currently Loaded.
+user1@service1:~&gt; module load netcdf-intel/4.5.0
+user1@service1:~&gt; module list
+Currently Loaded Modulefiles:
+  <span class="m">1</span><span class="o">)</span> szip/2.1.1           <span class="m">2</span><span class="o">)</span> hdf5/1.8.19          <span class="m">3</span><span class="o">)</span> netcdf-intel/4.5.0
+</pre></div>
+</div>
 </div>
 </div>
 </div>

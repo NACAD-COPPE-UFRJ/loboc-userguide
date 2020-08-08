@@ -83,7 +83,8 @@ O comando abaixo lista os módulos disponiveis. É importante observar que os m�
 
   Os modules (incluindo as versões) utilizados para compilar **devem ser os mesmos** a serem incluidos no script de submissão do job.
 
-Obtendo informações sobre os módulos.
+Obtendo informações sobre os módulos
+------------------------------------
 
 .. code-block:: bash
 
@@ -128,5 +129,47 @@ Carregando, listando e descarregando um módulo.
   
   user@service1:~> module list
   No Modulefiles Currently Loaded.
+
+Obtendo informações dos modules para compilação
+-----------------------------------------------
+
+Suponha que necessite do module ``netcdf-parallel/4.7.2`` para compilar o seu programa. Primeiro consulte qual compilador foi usado para compilar a biblioteca em questão.
+
+.. code-block:: bash
+   :emphasize-lines: 9
+   
+   user1@service1:~> module help netcdf-intel/4.5.0
+    
+   ----------- Module Specific Help for 'netcdf-intel/4.5.0' ---------
+   
+   Sets up the paths you need to use NetCDF.
+   NetCDF-C      : 4.5.0
+   NetCDF-CXX    : 4.3.0
+   NetCDF-Fortran: 4.4.4
+   Compiled with Intel 2017.4.196
+
+A linha em detaque mostra que a versão usada foi o ``Intel 2017.4.196``. Recomenda-se então o uso da mesma versão do compilador ou da mesma familia ``Intel 2017.x``, isto é não deve se deve usar o compilador ``Intel 2019.x``. O comando abaixo deve ser utilizado para compilar e incluido no job para a sua execução.
+
+.. code-block:: bash
+ 
+   module load intel/2017.4.196
+
+Ou da mesma familia, por exemplo.
+
+.. code-block:: bash
+ 
+   module load intel/2017.8
+
+
+Ao carregar um module todas as dependências, **excluindo** o compilador são carregadas.
+
+.. code-block:: bash
+
+ user1@service1:~> module list
+ No Modulefiles Currently Loaded.
+ user1@service1:~> module load netcdf-intel/4.5.0
+ user1@service1:~> module list
+ Currently Loaded Modulefiles:
+   1) szip/2.1.1           2) hdf5/1.8.19          3) netcdf-intel/4.5.0
 
 

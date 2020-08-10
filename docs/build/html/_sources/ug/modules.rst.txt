@@ -160,6 +160,12 @@ Ou da mesma familia, por exemplo.
  
    module load intel/2017.8
 
+.. note::
+
+   Quando o compilador GNU do sistema operacional é usado para compilar um ``module`` é **omitida** a informação sobre a versão utilizada para compilar.
+
+Dependências
+------------
 
 Ao carregar um module todas as dependências, **excluindo** o compilador são carregadas.
 

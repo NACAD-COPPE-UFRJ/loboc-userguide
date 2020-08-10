@@ -93,6 +93,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#exemplos-de-uso-do-module">2.3. Exemplos de Uso do Module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#obtendo-informacoes-sobre-os-modulos">2.3.1. Obtendo informações sobre os módulos</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#obtendo-informacoes-dos-modules-para-compilacao">2.3.2. Obtendo informações dos modules para compilação</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dependencias">2.3.3. Dependências</a></li>
 </ul>
 </li>
 </ul>
@@ -169,6 +170,7 @@
 <ul>
 <li><p><a class="reference internal" href="#obtendo-informacoes-sobre-os-modulos" id="id5">Obtendo informações sobre os módulos</a></p></li>
 <li><p><a class="reference internal" href="#obtendo-informacoes-dos-modules-para-compilacao" id="id6">Obtendo informações dos modules para compilação</a></p></li>
+<li><p><a class="reference internal" href="#dependencias" id="id7">Dependências</a></p></li>
 </ul>
 </li>
 </ul>
@@ -323,6 +325,13 @@ NetCDF-Fortran: <span class="m">4</span>.4.4
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>module load intel/2017.8
 </pre></div>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Quando o compilador GNU do sistema operacional é usado para compilar um <code class="docutils literal notranslate"><span class="pre">module</span></code> é <strong>omitida</strong> a informação sobre a versão utilizada para compilar.</p>
+</div>
+</div>
+<div class="section" id="dependencias">
+<h3><a class="toc-backref" href="#id7"><span class="section-number">2.3.3. </span>Dependências</a><a class="headerlink" href="#dependencias" title="Link permanente para este título">¶</a></h3>
 <p>Ao carregar um module todas as dependências, <strong>excluindo</strong> o compilador são carregadas.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>user1@service1:~&gt; module list
 No Modulefiles Currently Loaded.

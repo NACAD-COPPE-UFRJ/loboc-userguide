@@ -428,6 +428,10 @@ module load intel/2019.4
 </div>
 <div class="section" id="submissao-de-job">
 <h2><a class="toc-backref" href="#id12"><span class="section-number">3.4. </span>Submissão de job</a><a class="headerlink" href="#submissao-de-job" title="Link permanente para este título">¶</a></h2>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>O job scheduler dá prioridade aos jobs que solicitam menos recursos. É importante salientar que o preenchimento correto do parâmetro <code class="docutils literal notranslate"><span class="pre">walltime</span></code> pode acelerar a execução do seu job. Durante a operação do cluster, as vezes, é possível fazer alocações manuais e neste caso apenas jobs curtos são selecionados.</p>
+</div>
 <div class="section" id="submetendo-um-batch-job">
 <h3><a class="toc-backref" href="#id13"><span class="section-number">3.4.1. </span>Submetendo um batch job</a><a class="headerlink" href="#submetendo-um-batch-job" title="Link permanente para este título">¶</a></h3>
 <p>Usando como base um dos jobs scripts de exemplo, mostrados anteriormente no item <a class="reference internal" href="#exemplos"><span class="std std-ref">Exemplos de scripts</span></a>.</p>

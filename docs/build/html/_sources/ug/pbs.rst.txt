@@ -184,6 +184,11 @@ Repare nas linhas em destaque. A quantidade de processos MPI por nó de processa
 Submissão de job
 ================
 
+.. important::
+
+   O job scheduler dá prioridade aos jobs que solicitam menos recursos. É importante salientar que o preenchimento correto do parâmetro ``walltime`` pode acelerar a execução do seu job. Durante a operação do cluster, as vezes, é possível fazer alocações manuais e neste caso apenas jobs curtos são selecionados.
+
+
 Submetendo um batch job
 -----------------------
 Usando como base um dos jobs scripts de exemplo, mostrados anteriormente no item :ref:`exemplos`. 

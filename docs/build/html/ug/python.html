@@ -176,9 +176,112 @@
 </div>
 <div class="section" id="anaconda">
 <h2><a class="toc-backref" href="#id3"><span class="section-number">1.2. </span>Anaconda</a><a class="headerlink" href="#anaconda" title="Link permanente para este título">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>user1@service1:~&gt; module load anaconda3
+user1@service1:~&gt; module list
+Currently Loaded Modulefiles:
+<span class="m">1</span><span class="o">)</span> anaconda3/2020.07
+
+user1@service1:~&gt; conda list
+<span class="c1"># packages in environment at /sw/apps/python/anaconda3/2020.07:</span>
+<span class="c1">#</span>
+<span class="c1"># Name                    Version                   Build  Channel</span>
+_ipyw_jlab_nb_ext_conf    <span class="m">0</span>.1.0                    py38_0
+_libgcc_mutex             <span class="m">0</span>.1                        main
+alabaster                 <span class="m">0</span>.7.12                     py_0
+anaconda                  <span class="m">2020</span>.07                  py38_0
+...
+python                    <span class="m">3</span>.8.3                hcff3b4d_2
+...
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>user1@service1:~&gt; conda env list
+<span class="c1"># conda environments:</span>
+<span class="c1">#</span>
+base                  *  /sw/apps/python/anaconda3/2020.07
+
+user1@service1:~&gt; python
+Python <span class="m">3</span>.8.3 <span class="o">(</span>default, Jul  <span class="m">2</span> <span class="m">2020</span>, <span class="m">16</span>:21:59<span class="o">)</span>
+<span class="o">[</span>GCC <span class="m">7</span>.3.0<span class="o">]</span> :: Anaconda, Inc. on linux
+Type <span class="s2">&quot;help&quot;</span>, <span class="s2">&quot;copyright&quot;</span>, <span class="s2">&quot;credits&quot;</span> or <span class="s2">&quot;license&quot;</span> <span class="k">for</span> more information.
+&gt;&gt;&gt;
+</pre></div>
+</div>
 </div>
 <div class="section" id="miniconda">
 <h2><a class="toc-backref" href="#id4"><span class="section-number">1.3. </span>Miniconda</a><a class="headerlink" href="#miniconda" title="Link permanente para este título">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>user1@service1:~&gt; module load miniconda3
+user1@service1:~&gt; conda create -n pytorch
+Collecting package metadata <span class="o">(</span>current_repodata.json<span class="o">)</span>: <span class="k">done</span>
+Solving environment: <span class="k">done</span>
+
+<span class="c1">## Package Plan ##</span>
+
+  environment location: /home/users/user1/.conda/envs/pytorch
+
+Proceed <span class="o">([</span>y<span class="o">]</span>/n<span class="o">)</span>? y
+
+Preparing transaction: <span class="k">done</span>
+Verifying transaction: <span class="k">done</span>
+Executing transaction: <span class="k">done</span>
+<span class="c1">#</span>
+<span class="c1"># To activate this environment, use</span>
+<span class="c1">#</span>
+<span class="c1">#     $ conda activate pytorch</span>
+<span class="c1">#</span>
+<span class="c1"># To deactivate an active environment, use</span>
+<span class="c1">#</span>
+<span class="c1">#     $ conda deactivate</span>
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>user1@service1:~&gt; conda activate pytorch
+
+CommandNotFoundError: Your shell has not been properly configured to use <span class="s1">&#39;conda activate&#39;</span>.
+To initialize your shell, run
+
+  $ conda init &lt;SHELL_NAME&gt;
+
+Currently supported shells are:
+  - bash
+  - fish
+  - tcsh
+  - xonsh
+  - zsh
+  - powershell
+
+See <span class="s1">&#39;conda init --help&#39;</span> <span class="k">for</span> more information and options.
+
+IMPORTANT: You may need to close and restart your shell after running <span class="s1">&#39;conda init&#39;</span>.
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>user1@service1:~&gt; conda init bash
+...
+modified      /home/users/user1/.bashrc
+
+<span class="o">==</span>&gt; For changes to take effect, close and re-open your current shell. &lt;<span class="o">==</span>
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>user1@service1:~&gt; bash
+<span class="o">(</span>base<span class="o">)</span> user1@service1:~&gt; conda activate pytorch
+<span class="o">(</span>pytorch<span class="o">)</span> user1@service1:~&gt; conda deactivate
+<span class="o">(</span>base<span class="o">)</span> user1@service1:~&gt;
+</pre></div>
+</div>
+<p>Se preferir não ativar o conda por padrão basta mudar o parâmetro <code class="docutils literal notranslate"><span class="pre">auto_activate_base</span></code> para <code class="docutils literal notranslate"><span class="pre">false</span></code>, digitando o comando abaixo.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>base<span class="o">)</span> user1@service1:~&gt; conda config --set auto_activate_base <span class="nb">false</span>
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>user1@service1:~&gt; module load miniconda3
+
+user1@service1:~&gt; conda env list
+<span class="c1"># conda environments:</span>
+<span class="c1">#</span>
+pytorch                  /home/users/user1/.conda/envs/pytorch
+base                  *  /sw/apps/python/miniconda3/4.8.2
+
+user1@service1:~&gt; conda activate pytorch
+<span class="o">(</span>pytorch<span class="o">)</span> user1@service1:~&gt;
+</pre></div>
+</div>
 </div>
 </div>
 

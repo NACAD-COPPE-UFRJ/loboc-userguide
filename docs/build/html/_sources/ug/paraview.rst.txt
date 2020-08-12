@@ -23,7 +23,7 @@ Para utilizar o Paraview é necessário criar um túnel SSH conforme ilustrado n
 - 2 terminais conectados ao LoboC. Os terminais serão identificados como ``t1$`` e ``t2$``
 - cliente paraview instalado na workstation de visualização (computador do usuário)
 
-.. note::
+.. important::
 
   A versão do Paraview instalado no cliente deve ser a :strong:`mesma` do servidor.
 

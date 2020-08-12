@@ -14,5 +14,12 @@ LoboC - Guia do Usuário
    ug/introduction.rst
    ug/modules.rst
    ug/pbs.rst
-   ug/paraview.rst
 
+
+.. toctree::
+   :maxdepth: 2
+   :numbered:
+   :caption: Aplicação:
+
+   ug/python.rst
+   ug/paraview.rst

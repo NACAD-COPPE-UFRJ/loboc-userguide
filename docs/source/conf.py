@@ -23,7 +23,7 @@ copyright = '2020, NACAD-COPPE-UFRJ'
 author = 'Núcleo Avançado de Computação de Alto Desempenho'
 
 # The full version, including alpha/beta/rc tags
-release = '0.0.2'
+release = '0.0.5'
 
 
 # -- General configuration ---------------------------------------------------

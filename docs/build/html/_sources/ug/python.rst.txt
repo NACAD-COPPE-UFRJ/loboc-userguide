@@ -6,10 +6,17 @@ Python
 
 Introdução
 ==========
-Ao se trabalhar com a linguagem Python pode ser necessário o uso de algumas dependências. Não é viável instalar todos os pacotes no sistema, pois alguns deles são incompatíveis com outras versões do sistema. Para isso devemos utilizar um gerenciador de pacotes Python que pode ser o Conda ou o Virtualenv. O gerenciador conda faz parte de dois modules do sistema o ``Anaconda`` e o ``Miniconda`` que serã descritos posteriormente.
+Normalmente ao se trabalhar com a linguagem Python é necessário instalar algumas dependências. Como não é viável instalar todos os pacotes no sistema operacional, pois, dependendo da versão, algumas dependências são incompatíveis entre si. Para contornar o problema deve-se utilizar um gerenciador de pacotes **Python** que pode ser o ``Conda`` ou o ``Virtualenv``. O gerenciador **Conda** faz parte de dois modules do LoboC, o ``Anaconda`` e o ``Miniconda``.
+
+.. note::
+
+  O LoboC tem instalado apenas o gerenciador ``Conda``. 
+
 
 Anaconda
 ========
+
+O **Anaconda** é uma das distribuições mais utilizadas para *Data Science* e *Machine Learning*. Ele inclui mais de 300 pacotes. Para utilizar basta carregar o module e usar.
 
 .. code-block:: bash
 
@@ -30,22 +37,29 @@ Anaconda
   python                    3.8.3                hcff3b4d_2
   ...
 
+Pode-se perceber facilmente a mudança da versão do **Python** logo após o carregamento do module do **Anaconda**.
+
 .. code-block:: bash
 
-  user1@service1:~> conda env list
-  # conda environments:
-  #
-  base                  *  /sw/apps/python/anaconda3/2020.07
-  
   user1@service1:~> python
   Python 3.8.3 (default, Jul  2 2020, 16:21:59)
   [GCC 7.3.0] :: Anaconda, Inc. on linux
   Type "help", "copyright", "credits" or "license" for more information.
   >>>
 
+.. note::
+
+   O **Anaconda** também permite a criação de novos ambientes como mostrados no item **Miniconda**.
 
 Miniconda
 =========
+
+Entretanto, nem sempre os pacotes do **Anaconda** são o suficiente para atender todas as necessidades. Então neste caso, recomenda-se o uso do **Miniconda**, poie ele carrega o mínimo de pacotes para fazer o gerenciamento e permite que o usuário crie um novo ambiente de forma otimizada. 
+
+Por exemplo, suponha que seja necessário a instalação do pytorch. Segue o procedimento de criação de um novo ambiente chamado ``pytorch``.
+
+Criar um novo ambiente
+----------------------
 
 .. code-block:: bash
 
@@ -72,6 +86,12 @@ Miniconda
   #
   #     $ conda deactivate
 
+
+Ajustar o ambiente
+------------------
+
+Entretanto, na primeira vez que fizer o ``activate`` no primeiro ambiente criado pelo miniconda, ele dará um erro.
+
 .. code-block:: bash
 
   user1@service1:~> conda activate pytorch
@@ -93,6 +113,8 @@ Miniconda
   
   IMPORTANT: You may need to close and restart your shell after running 'conda init'.
 
+Para corrigir basta digitar o comando abaixo e depois saia e entre novamente na conta.
+
 .. code-block:: bash
 
   user1@service1:~> conda init bash
@@ -101,18 +123,24 @@ Miniconda
   
   ==> For changes to take effect, close and re-open your current shell. <==
 
+Repare que o ``prompt`` mudou indicando que o ambiente **conda** é o ``(base)``.
+
 .. code-block:: bash
 
-  user1@service1:~> bash
   (base) user1@service1:~> conda activate pytorch
   (pytorch) user1@service1:~> conda deactivate 
   (base) user1@service1:~>
 
-Se preferir não ativar o conda por padrão basta mudar o parâmetro ``auto_activate_base`` para ``false``, digitando o comando abaixo.
+Pode-se optar por não ativar automaticamente o conda durante o ``login``. Basta mudar o parâmetro ``auto_activate_base`` para ``false``, digitando o comando a seguir.
 
 .. code-block:: bash
 
   (base) user1@service1:~> conda config --set auto_activate_base false
+
+No novo ``login`` não aparece mais o ambiente ``(base)`` do **conda**. Para ativar o ambiente ``pytorch`` carregue o *module* e ative o novo ambiente.
+
+Listar os ambientes
+-------------------
 
 .. code-block:: bash
 
@@ -122,10 +150,48 @@ Se preferir não ativar o conda por padrão basta mudar o parâmetro ``auto_acti
   # conda environments:  
   #
   pytorch                  /home/users/user1/.conda/envs/pytorch
-  base                  *  /sw/apps/python/miniconda3/4.8.2
+  base                  *  /sw/apps/python/miniconda3/4.8.3
   
+Instalar pacotes no ambiente
+----------------------------
+
+Para instalar os pacotes selecione o ambiente desejado e instale os pacotes.
+
+.. code-block:: bash
+
   user1@service1:~> conda activate pytorch
   (pytorch) user1@service1:~>
 
+  user1@service1:~> conda install pytorch-cpu
+  Collecting package metadata (current_repodata.json): done
+  Solving environment: done
+  
+  ## Package Plan ##
+  
+    environment location: /sw/apps/python/miniconda3/4.8.3
+  
+    added / updated specs:
+      - pytorch-cpu
+  ...
+   Proceed ([y]/n)? y
 
+
+Neste exemplo foi instalado o **pytorch** para **CPU**.
+
+
+.. note::
+
+  Também é possível usar o comando ``pip`` para fazer a instalação de pacotes dentro do ambiente virtual, mas para isso é necessário que o ``python`` e ``pip`` já estejam previamente instalados.
+
+
+
+Remover um ambiente
+-------------------
+
+Removendo um ambiente com todos os pacotes.
+
+.. code-block:: bash
+
+  (pytorch) user1@service1:~> conda deactivate
+  user1@service1:~> conda remove -n pytorch --all
 

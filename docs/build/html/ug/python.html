@@ -95,7 +95,14 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">1. Python</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#introducao">1.1. Introdução</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#anaconda">1.2. Anaconda</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#miniconda">1.3. Miniconda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#miniconda">1.3. Miniconda</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#criar-um-novo-ambiente">1.3.1. Criar um novo ambiente</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ajustar-o-ambiente">1.3.2. Ajustar o ambiente</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#listar-os-ambientes">1.3.3. Listar os ambientes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#instalar-pacotes-no-ambiente">1.3.4. Instalar pacotes no ambiente</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#remover-um-ambiente">1.3.5. Remover um ambiente</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="paraview.html">2. Paraview</a></li>
@@ -165,17 +172,30 @@
 <ul>
 <li><p><a class="reference internal" href="#introducao" id="id2">Introdução</a></p></li>
 <li><p><a class="reference internal" href="#anaconda" id="id3">Anaconda</a></p></li>
-<li><p><a class="reference internal" href="#miniconda" id="id4">Miniconda</a></p></li>
+<li><p><a class="reference internal" href="#miniconda" id="id4">Miniconda</a></p>
+<ul>
+<li><p><a class="reference internal" href="#criar-um-novo-ambiente" id="id5">Criar um novo ambiente</a></p></li>
+<li><p><a class="reference internal" href="#ajustar-o-ambiente" id="id6">Ajustar o ambiente</a></p></li>
+<li><p><a class="reference internal" href="#listar-os-ambientes" id="id7">Listar os ambientes</a></p></li>
+<li><p><a class="reference internal" href="#instalar-pacotes-no-ambiente" id="id8">Instalar pacotes no ambiente</a></p></li>
+<li><p><a class="reference internal" href="#remover-um-ambiente" id="id9">Remover um ambiente</a></p></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
 </div>
 <div class="section" id="introducao">
 <h2><a class="toc-backref" href="#id2"><span class="section-number">1.1. </span>Introdução</a><a class="headerlink" href="#introducao" title="Link permanente para este título">¶</a></h2>
-<p>Ao se trabalhar com a linguagem Python pode ser necessário o uso de algumas dependências. Não é viável instalar todos os pacotes no sistema, pois alguns deles são incompatíveis com outras versões do sistema. Para isso devemos utilizar um gerenciador de pacotes Python que pode ser o Conda ou o Virtualenv. O gerenciador conda faz parte de dois modules do sistema o <code class="docutils literal notranslate"><span class="pre">Anaconda</span></code> e o <code class="docutils literal notranslate"><span class="pre">Miniconda</span></code> que serã descritos posteriormente.</p>
+<p>Normalmente ao se trabalhar com a linguagem Python é necessário instalar algumas dependências. Como não é viável instalar todos os pacotes no sistema operacional, pois, dependendo da versão, algumas dependências são incompatíveis entre si. Para contornar o problema deve-se utilizar um gerenciador de pacotes <strong>Python</strong> que pode ser o <code class="docutils literal notranslate"><span class="pre">Conda</span></code> ou o <code class="docutils literal notranslate"><span class="pre">Virtualenv</span></code>. O gerenciador <strong>Conda</strong> faz parte de dois modules do LoboC, o <code class="docutils literal notranslate"><span class="pre">Anaconda</span></code> e o <code class="docutils literal notranslate"><span class="pre">Miniconda</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>O LoboC tem instalado apenas o gerenciador <code class="docutils literal notranslate"><span class="pre">Conda</span></code>.</p>
+</div>
 </div>
 <div class="section" id="anaconda">
 <h2><a class="toc-backref" href="#id3"><span class="section-number">1.2. </span>Anaconda</a><a class="headerlink" href="#anaconda" title="Link permanente para este título">¶</a></h2>
+<p>O <strong>Anaconda</strong> é uma das distribuições mais utilizadas para <em>Data Science</em> e <em>Machine Learning</em>. Ele inclui mais de 300 pacotes. Para utilizar basta carregar o module e usar.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>user1@service1:~&gt; module load anaconda3
 user1@service1:~&gt; module list
 Currently Loaded Modulefiles:
@@ -194,21 +214,25 @@ python                    <span class="m">3</span>.8.3                hcff3b4d_2
 ...
 </pre></div>
 </div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>user1@service1:~&gt; conda env list
-<span class="c1"># conda environments:</span>
-<span class="c1">#</span>
-base                  *  /sw/apps/python/anaconda3/2020.07
-
-user1@service1:~&gt; python
+<p>Pode-se perceber facilmente a mudança da versão do <strong>Python</strong> logo após o carregamento do module do <strong>Anaconda</strong>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>user1@service1:~&gt; python
 Python <span class="m">3</span>.8.3 <span class="o">(</span>default, Jul  <span class="m">2</span> <span class="m">2020</span>, <span class="m">16</span>:21:59<span class="o">)</span>
 <span class="o">[</span>GCC <span class="m">7</span>.3.0<span class="o">]</span> :: Anaconda, Inc. on linux
 Type <span class="s2">&quot;help&quot;</span>, <span class="s2">&quot;copyright&quot;</span>, <span class="s2">&quot;credits&quot;</span> or <span class="s2">&quot;license&quot;</span> <span class="k">for</span> more information.
 &gt;&gt;&gt;
 </pre></div>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>O <strong>Anaconda</strong> também permite a criação de novos ambientes como mostrados no item <strong>Miniconda</strong>.</p>
+</div>
 </div>
 <div class="section" id="miniconda">
 <h2><a class="toc-backref" href="#id4"><span class="section-number">1.3. </span>Miniconda</a><a class="headerlink" href="#miniconda" title="Link permanente para este título">¶</a></h2>
+<p>Entretanto, nem sempre os pacotes do <strong>Anaconda</strong> são o suficiente para atender todas as necessidades. Então neste caso, recomenda-se o uso do <strong>Miniconda</strong>, poie ele carrega o mínimo de pacotes para fazer o gerenciamento e permite que o usuário crie um novo ambiente de forma otimizada.</p>
+<p>Por exemplo, suponha que seja necessário a instalação do pytorch. Segue o procedimento de criação de um novo ambiente chamado <code class="docutils literal notranslate"><span class="pre">pytorch</span></code>.</p>
+<div class="section" id="criar-um-novo-ambiente">
+<h3><a class="toc-backref" href="#id5"><span class="section-number">1.3.1. </span>Criar um novo ambiente</a><a class="headerlink" href="#criar-um-novo-ambiente" title="Link permanente para este título">¶</a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>user1@service1:~&gt; module load miniconda3
 user1@service1:~&gt; conda create -n pytorch
 Collecting package metadata <span class="o">(</span>current_repodata.json<span class="o">)</span>: <span class="k">done</span>
@@ -233,6 +257,10 @@ Executing transaction: <span class="k">done</span>
 <span class="c1">#     $ conda deactivate</span>
 </pre></div>
 </div>
+</div>
+<div class="section" id="ajustar-o-ambiente">
+<h3><a class="toc-backref" href="#id6"><span class="section-number">1.3.2. </span>Ajustar o ambiente</a><a class="headerlink" href="#ajustar-o-ambiente" title="Link permanente para este título">¶</a></h3>
+<p>Entretanto, na primeira vez que fizer o <code class="docutils literal notranslate"><span class="pre">activate</span></code> no primeiro ambiente criado pelo miniconda, ele dará um erro.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>user1@service1:~&gt; conda activate pytorch
 
 CommandNotFoundError: Your shell has not been properly configured to use <span class="s1">&#39;conda activate&#39;</span>.
@@ -253,6 +281,7 @@ See <span class="s1">&#39;conda init --help&#39;</span> <span class="k">for</spa
 IMPORTANT: You may need to close and restart your shell after running <span class="s1">&#39;conda init&#39;</span>.
 </pre></div>
 </div>
+<p>Para corrigir basta digitar o comando abaixo e depois saia e entre novamente na conta.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>user1@service1:~&gt; conda init bash
 ...
 modified      /home/users/user1/.bashrc
@@ -260,27 +289,63 @@ modified      /home/users/user1/.bashrc
 <span class="o">==</span>&gt; For changes to take effect, close and re-open your current shell. &lt;<span class="o">==</span>
 </pre></div>
 </div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>user1@service1:~&gt; bash
-<span class="o">(</span>base<span class="o">)</span> user1@service1:~&gt; conda activate pytorch
+<p>Repare que o <code class="docutils literal notranslate"><span class="pre">prompt</span></code> mudou indicando que o ambiente <strong>conda</strong> é o <code class="docutils literal notranslate"><span class="pre">(base)</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>base<span class="o">)</span> user1@service1:~&gt; conda activate pytorch
 <span class="o">(</span>pytorch<span class="o">)</span> user1@service1:~&gt; conda deactivate
 <span class="o">(</span>base<span class="o">)</span> user1@service1:~&gt;
 </pre></div>
 </div>
-<p>Se preferir não ativar o conda por padrão basta mudar o parâmetro <code class="docutils literal notranslate"><span class="pre">auto_activate_base</span></code> para <code class="docutils literal notranslate"><span class="pre">false</span></code>, digitando o comando abaixo.</p>
+<p>Pode-se optar por não ativar automaticamente o conda durante o <code class="docutils literal notranslate"><span class="pre">login</span></code>. Basta mudar o parâmetro <code class="docutils literal notranslate"><span class="pre">auto_activate_base</span></code> para <code class="docutils literal notranslate"><span class="pre">false</span></code>, digitando o comando a seguir.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>base<span class="o">)</span> user1@service1:~&gt; conda config --set auto_activate_base <span class="nb">false</span>
 </pre></div>
 </div>
+<p>No novo <code class="docutils literal notranslate"><span class="pre">login</span></code> não aparece mais o ambiente <code class="docutils literal notranslate"><span class="pre">(base)</span></code> do <strong>conda</strong>. Para ativar o ambiente <code class="docutils literal notranslate"><span class="pre">pytorch</span></code> carregue o <em>module</em> e ative o novo ambiente.</p>
+</div>
+<div class="section" id="listar-os-ambientes">
+<h3><a class="toc-backref" href="#id7"><span class="section-number">1.3.3. </span>Listar os ambientes</a><a class="headerlink" href="#listar-os-ambientes" title="Link permanente para este título">¶</a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>user1@service1:~&gt; module load miniconda3
 
 user1@service1:~&gt; conda env list
 <span class="c1"># conda environments:</span>
 <span class="c1">#</span>
 pytorch                  /home/users/user1/.conda/envs/pytorch
-base                  *  /sw/apps/python/miniconda3/4.8.2
-
-user1@service1:~&gt; conda activate pytorch
-<span class="o">(</span>pytorch<span class="o">)</span> user1@service1:~&gt;
+base                  *  /sw/apps/python/miniconda3/4.8.3
 </pre></div>
+</div>
+</div>
+<div class="section" id="instalar-pacotes-no-ambiente">
+<h3><a class="toc-backref" href="#id8"><span class="section-number">1.3.4. </span>Instalar pacotes no ambiente</a><a class="headerlink" href="#instalar-pacotes-no-ambiente" title="Link permanente para este título">¶</a></h3>
+<p>Para instalar os pacotes selecione o ambiente desejado e instale os pacotes.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>user1@service1:~&gt; conda activate pytorch
+<span class="o">(</span>pytorch<span class="o">)</span> user1@service1:~&gt;
+
+user1@service1:~&gt; conda install pytorch-cpu
+Collecting package metadata <span class="o">(</span>current_repodata.json<span class="o">)</span>: <span class="k">done</span>
+Solving environment: <span class="k">done</span>
+
+<span class="c1">## Package Plan ##</span>
+
+  environment location: /sw/apps/python/miniconda3/4.8.3
+
+  added / updated specs:
+    - pytorch-cpu
+...
+ Proceed <span class="o">([</span>y<span class="o">]</span>/n<span class="o">)</span>? y
+</pre></div>
+</div>
+<p>Neste exemplo foi instalado o <strong>pytorch</strong> para <strong>CPU</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Também é possível usar o comando <code class="docutils literal notranslate"><span class="pre">pip</span></code> para fazer a instalação de pacotes dentro do ambiente virtual, mas para isso é necessário que o <code class="docutils literal notranslate"><span class="pre">python</span></code> e <code class="docutils literal notranslate"><span class="pre">pip</span></code> já estejam previamente instalados.</p>
+</div>
+</div>
+<div class="section" id="remover-um-ambiente">
+<h3><a class="toc-backref" href="#id9"><span class="section-number">1.3.5. </span>Remover um ambiente</a><a class="headerlink" href="#remover-um-ambiente" title="Link permanente para este título">¶</a></h3>
+<p>Removendo um ambiente com todos os pacotes.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>pytorch<span class="o">)</span> user1@service1:~&gt; conda deactivate
+user1@service1:~&gt; conda remove -n pytorch --all
+</pre></div>
+</div>
 </div>
 </div>
 </div>

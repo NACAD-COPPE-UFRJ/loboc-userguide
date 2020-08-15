@@ -6,7 +6,7 @@ Python
 
 Introdução
 ==========
-Normalmente ao se trabalhar com a linguagem Python é necessário instalar algumas dependências. Como não é viável instalar todos os pacotes no sistema operacional, pois, dependendo da versão, algumas dependências são incompatíveis entre si. Para contornar o problema deve-se utilizar um gerenciador de pacotes **Python** que pode ser o ``Conda`` ou o ``Virtualenv``. O gerenciador **Conda** faz parte de dois modules do LoboC, o ``Anaconda`` e o ``Miniconda``.
+Normalmente ao se trabalhar com a linguagem Python é necessário instalar algumas dependências. Como não é viável instalar todos os pacotes no sistema operacional, pois, dependendo da versão, algumas dependências são incompatíveis entre si. Entretanto, pode-se contornar o problema utilizando um gerenciador de pacotes **Python** que pode ser o ``Conda`` ou o ``Virtualenv``. O gerenciador **Conda** faz parte de dois *modules* do LoboC, o ``Anaconda`` e o ``Miniconda``.
 
 .. note::
 
@@ -16,7 +16,7 @@ Normalmente ao se trabalhar com a linguagem Python é necessário instalar algum
 Anaconda
 ========
 
-O **Anaconda** é uma das distribuições mais utilizadas para *Data Science* e *Machine Learning*. Ele inclui mais de 300 pacotes. Para utilizar basta carregar o module e usar.
+O **Anaconda** é uma das distribuições mais utilizadas para *Data Science* e *Machine Learning*. Ele inclui mais de 300 pacotes. A utilização no LoboC é muito simples basta carregar o module e usar.
 
 .. code-block:: bash
 
@@ -49,17 +49,20 @@ Pode-se perceber facilmente a mudança da versão do **Python** logo após o car
 
 .. note::
 
-   O **Anaconda** também permite a criação de novos ambientes como mostrados no item **Miniconda**.
+   O **Anaconda** também permite a criação de novos ambientes como mostrado no item **Miniconda**.
+
 
 Miniconda
 =========
 
-Entretanto, nem sempre os pacotes do **Anaconda** são o suficiente para atender todas as necessidades. Então neste caso, recomenda-se o uso do **Miniconda**, poie ele carrega o mínimo de pacotes para fazer o gerenciamento e permite que o usuário crie um novo ambiente de forma otimizada. 
+Nem sempre os pacotes do **Anaconda** são o suficiente para atender todas as necessidades. Então neste caso, recomenda-se o uso do **Miniconda**, pois ele carrega o mínimo de pacotes para fazer o gerenciamento e permite que o usuário crie um novo ambiente de forma otimizada. 
 
-Por exemplo, suponha que seja necessário a instalação do pytorch. Segue o procedimento de criação de um novo ambiente chamado ``pytorch``.
+Por exemplo, suponha que seja necessário a instalação do *pytorch*. Nos itens a seguir serão mostrados os procedimentos para a criação de um novo ambiente chamado ``pytorch``.
 
 Criar um novo ambiente
 ----------------------
+
+Para criar o ambiente chamado ``pytorch`` basta seguir o procedimento abaixo.
 
 .. code-block:: bash
 
@@ -90,7 +93,9 @@ Criar um novo ambiente
 Ajustar o ambiente
 ------------------
 
-Entretanto, na primeira vez que fizer o ``activate`` no primeiro ambiente criado pelo miniconda, ele dará um erro.
+.. error::
+
+  Na primeira vez que ativar o primeiro ambiente com o comando ``conda activate`` ele dará um erro durante a inicialização.
 
 .. code-block:: bash
 
@@ -113,7 +118,7 @@ Entretanto, na primeira vez que fizer o ``activate`` no primeiro ambiente criado
   
   IMPORTANT: You may need to close and restart your shell after running 'conda init'.
 
-Para corrigir basta digitar o comando abaixo e depois saia e entre novamente na conta.
+Para corrigir basta digitar o comando abaixo e depois reabra o shell corrente ou um novo shell.
 
 .. code-block:: bash
 
@@ -123,7 +128,7 @@ Para corrigir basta digitar o comando abaixo e depois saia e entre novamente na 
   
   ==> For changes to take effect, close and re-open your current shell. <==
 
-Repare que o ``prompt`` mudou indicando que o ambiente **conda** é o ``(base)``.
+Repare que agora no ``prompt`` aparece o ambiente **conda**. O ambiente padrão é o ``(base)``. Ao ativar um novo ambiente, por exemplo o ``pytorch`` ele mudará o ambiente e o ``prompt``. Para desativar o ambiente basta digitar ``conda deactivate``.
 
 .. code-block:: bash
 
@@ -137,10 +142,12 @@ Pode-se optar por não ativar automaticamente o conda durante o ``login``. Basta
 
   (base) user1@service1:~> conda config --set auto_activate_base false
 
-No novo ``login`` não aparece mais o ambiente ``(base)`` do **conda**. Para ativar o ambiente ``pytorch`` carregue o *module* e ative o novo ambiente.
+No novo ``login`` não aparece mais o ambiente ``(base)`` do **conda** no prompt. Para ativar o ambiente ``pytorch`` carregue o *module* e ative o novo ambiente.
 
 Listar os ambientes
 -------------------
+
+Para listar os ambientes disponiveis usa o comando ``conda env list``.
 
 .. code-block:: bash
 
@@ -155,7 +162,7 @@ Listar os ambientes
 Instalar pacotes no ambiente
 ----------------------------
 
-Para instalar os pacotes selecione o ambiente desejado e instale os pacotes.
+Para instalar os pacotes selecione o ambiente desejado e instale os pacotes. Por exemplo, instalar o **pytorch** para **CPU**.
 
 .. code-block:: bash
 
@@ -174,9 +181,6 @@ Para instalar os pacotes selecione o ambiente desejado e instale os pacotes.
       - pytorch-cpu
   ...
    Proceed ([y]/n)? y
-
-
-Neste exemplo foi instalado o **pytorch** para **CPU**.
 
 
 .. note::

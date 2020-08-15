@@ -1,0 +1,64 @@
+.. raw:: html
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+    $( function() {
+      $( "#accordion" ).accordion({
+        heightStyle: "content",
+        collapsible: true
+      });
+    } );
+    </script>
+    <style>
+    .ui-widget-content a { color: #2980b9;}
+    .ui-widget-content a:visited { color: #9b59b6;}
+    .toctree-wrapper > p.caption { display:none}
+    </style>
+
+
+
+Dúvidas Frequentes
+==================
+
+.. raw:: html
+   
+   <div id=accordion>
+   <h3>Sobre</h3>
+   <div>
+   
+.. toctree::
+   :maxdepth: 1
+   :caption: Sobre
+
+   faq/sobre
+
+.. raw:: html
+
+   </div>
+   <h3>Processo de Registro</h3>
+   <div>
+   
+.. toctree::
+   :maxdepth: 1
+   :caption: Processo de Registro
+   
+   faq/registro
+
+.. raw:: html
+
+   </div>
+   <h3>Acesso ao LoboC</h3>
+   <div>
+   
+.. toctree::
+   :maxdepth: 1
+   :caption: Acesso ao LoboC
+   
+   faq/acesso
+
+.. raw:: html
+   
+   </div>
+

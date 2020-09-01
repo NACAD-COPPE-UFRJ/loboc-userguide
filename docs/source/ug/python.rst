@@ -147,7 +147,7 @@ No novo ``login`` não aparece mais o ambiente ``(base)`` do **conda** no prompt
 Listar os ambientes
 -------------------
 
-Para listar os ambientes disponiveis usa o comando ``conda env list``.
+Para listar os ambientes disponiveis use o comando ``conda env list``.
 
 .. code-block:: bash
 

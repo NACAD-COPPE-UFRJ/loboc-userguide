@@ -13,9 +13,9 @@ Para poder utilizar siga as orientações abaixo.
 Pré-requisitos
 ==============
 
-Para utilizar o Paraview é necessário criar um túnel SSH conforme ilustrado na figura_ abaixo 
+Para utilizar o Paraview é necessário criar um túnel SSH conforme ilustrado na figura abaixo (fonte_: Reverse connection and port forwarding)
 
-.. figure:: ../images/Rc-tunnel.png
+.. figure:: ../images/Two-hop-tunnel.png
    :align: center
    
    Topologia do túnel
@@ -89,7 +89,7 @@ Repare na figura abaixo que no *Pipeline Browser* mostra a conexão com o LoboC.
 6) Ao terminar o uso vá no menu do Paraview na workstation e selecione ``File->Disconnect``. Depois vá ao **Terminal 1** (*t1*) e digite ``exit``. Para finalizar feche todas as conexões em *t1* e *t2*.
 
 .. _Paraview: https://www.paraview.org/
-.. _figura: https://www.paraview.org/Wiki/Reverse_connection_and_port_forwarding
+.. _fonte: https://www.paraview.org/Wiki/Reverse_connection_and_port_forwarding
 
 
 

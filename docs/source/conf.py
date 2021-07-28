@@ -19,7 +19,7 @@ import sphinx_rtd_theme
 # -- Project information -----------------------------------------------------
 
 project = 'lobocug-at-nacad'
-copyright = '2020, NACAD-COPPE-UFRJ'
+copyright = '2020-2021, NACAD-COPPE-UFRJ'
 author = 'Núcleo Avançado de Computação de Alto Desempenho'
 
 # The full version, including alpha/beta/rc tags
